@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* step-1 클래스를 미리 지정해준다. */
+    /* 탭메뉴의 컨텐츠 부분을 안보이게 처리할때 사용할 클래스 */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 탭메뉴 전체를 핸들링 하기위한 컨테이너 태그 #tabmenu -->
+  <div id="tabmenu">
+    <ul id="tabmenu-button">
+      <li>탭메뉴버튼-1</li>
+      <li>탭메뉴버튼-2</li>
+    </ul>
+    <ul id="tabmenu-1-contant">
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+    </ul>
+    <ul id="tabmenu-2-contant">
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+    </ul>
+
+
+  </div>
+  <script>
+    // step-2 : 선택자를 초기화(initial) 해준다.
+    // 탭메뉴 버튼부분 초기화, 헷갈리지 않게 아이디 명과 같게 변수를 작명한다.
+    const tabMenuOne = document.querySelector('#tabmenu-button li:nth-child(1)');
+    const tabMenuTwo = document.querySelector('#tabmenu-button li:nth-child(2)');
+    // 탭메뉴 컨텐츠 부분 두개 초기화 버튼부분과 상동
+    const tabMenuOneContant = document.querySelector('#tabmenu-1-contant');
+    const tabMenuTwoContant = document.querySelector('#tabmenu-2-contant');
+    // console.log() 메서드를 활용하여 초기화가 잘 진행되었는지 모두 확인한다. 
+    console.log(tabMenuOne); // 탭메뉴 버튼 1 부분
+    console.log(tabMenuTwo); // 탭메뉴 버튼 1 부분
+    console.log(tabMenuOneContant); // 컨텐츠 1 번 부분
+    console.log(tabMenuTwoContant); // 컨텐츠 2 번 부분
+    // step-2 : 식별자 초기화가 모두 완료되었다면 다음으로 진행한다.
+
+
+
+
+  </script>
+</body>
+
+</html>

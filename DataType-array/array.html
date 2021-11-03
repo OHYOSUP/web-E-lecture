@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array</title>
+</head>
+
+<body>
+  <!-- markup ************************************** -->
+  <ul></ul>
+  <!-- markup ************************************** -->
+  <script>
+    // array literal declaration 
+    const liArr = [];
+    liArr.push('피카츄');
+    liArr.push('라이츄');
+    liArr.push('파이리');
+    liArr.push('꼬부기');
+    liArr.push('버터풀');
+    liArr.push('야도란');
+    liArr.push('피존투');
+    liArr.push('또가스');
+    // for() loop function
+    for (let i = 0; i < liArr.length; i++) {
+      const ul = document.querySelector('ul');
+      const li = document.createElement('li');
+      const textNode = document.createTextNode(liArr[i]);
+      ul.appendChild(li);
+      li.appendChild(textNode);
+    };
+    // ***************************************************
+
+    const ulTag = document.querySelector('ul');
+    ulTag.addEventListener('click', (event) => {
+      const eventTarget = event.target;
+      eventTarget.style.fontSize = "2em";
+      const nextTarget = eventTarget.nextSibling;
+      nextTarget.style.opacity = "0.5";
+      const previousTarget = eventTarget.previousSibling;
+      previousTarget.style.opacity = "0.5";
+    });
+
+  </script>
+</body>
+
+</html>

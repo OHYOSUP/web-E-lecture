@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <!-- class imgclide container tag에 3개의 a태그를 자식으로 두고 있다. -->
+  <div class="imgslide">
+    <!-- 각 개별 a 태그는 img 태그와 span 태그를 자식으로 두고 있다. -->
+    <a href="#">
+      <img src="" alt="">
+      <span class="imagetext">연꽃마을축제1</span>
+    </a>
+    <a href="#">
+      <img src="" alt="">
+      <span class="imagetext">연꽃마을축제2</span>
+    </a>
+    <a href="#">
+      <img src="" alt="">
+      <span class="imagetext">연꽃마을축제3</span>
+    </a>
+  </div>
+  <script>
+    $('.imgslide a:gt(0)').hide();
+    setInterval(function () {
+      $('.imgslide a:first-child').fateOut()
+        .next('a').fadeIn()
+        .end().appendTo('.imgslide');
+    }, 3000);
+  </script>
+</body>
+
+</html>

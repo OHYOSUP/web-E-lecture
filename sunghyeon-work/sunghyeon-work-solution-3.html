@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background-color: cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    const div = document.querySelector('div');
+    // 2. 강사가 달달 노래를 부르던 초기화
+    // initial variable
+    let sizeValue = 200;
+    let pixel = 'px';
+
+    div.style.width = sizeValue + pixel;
+    div.style.height = sizeValue + pixel;
+    // 1. 겁나 똑똑한 발견의 시작 인류의 태동
+    // 사람말 알고리즘
+    // 어라? 생각해보니 가로값하고 세로값 모두 같은 200이네?
+    // 얼랠래 px이란 단어는 문자열로 숫자 뒤에 붙여주는 방식이네?
+    // 이걸 분리해서 조절하면 겁내 편하겟는데?
+
+    // 3. 시간의 마법사
+    // 시간당 움직이는 뭐가 있었는디
+    setInterval(function () {
+      // 초기화 했던 sizeValue를 줄이면되겟는디?
+      // 대입연산자를 쓰면 값을 넣어줬던 것을 다시 바꿔줄 수 있다고 했었어.
+      sizeValue = sizeValue - 10;
+      div.style.width = sizeValue + pixel;
+      div.style.height = sizeValue + pixel;
+      // 4. 조건도 걸어주자. 100 이하로 줄어들면 색깔이 바뀌어야돼
+      if (sizeValue <= 100) {
+        // 초기화 했던걸 겁나게 편하게 써먹네
+        div.style.backgroundColor = 'pink';
+        // 역시 색깔은 핑크로 바꿔주자.
+      }
+
+
+    }, 1000);
+
+
+
+  </script>
+</body>
+
+</html>

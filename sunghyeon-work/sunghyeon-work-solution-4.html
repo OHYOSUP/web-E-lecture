@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background-color: cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // 코드가 지저분해. 정리하자.
+    // initial
+    const div = document.querySelector('div');
+    let sizeValue = 200;
+    const pixelUnitString = 'px';
+    // access style object & assignment 
+    div.style.width = sizeValue + pixelUnitString;
+    div.style.height = sizeValue + pixelUnitString;
+    // function declaration
+    function decreaseSizeElement(querySelector, changeSizeValue, changeColor) {
+      // interval set
+      const timer = setInterval(function () {
+        // change value
+        sizeValue -= changeSizeValue;
+        div.style.width = sizeValue + pixelUnitString;
+        div.style.height = sizeValue + pixelUnitString;
+        // condition
+        if (sizeValue <= 100) {
+          querySelector.style.backgroundColor = changeColor;
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+    // function call
+    decreaseSizeElement(div, 10, 'red');
+
+  </script>
+</body>
+
+</html>

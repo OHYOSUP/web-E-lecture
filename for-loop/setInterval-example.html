@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setInterval</title>
+  <style>
+    div { width: 100px; height: 100px; background-color: brown;}
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+    const div = document.querySelector('div');
+    console.dir(div);
+    let marginLeftValue = 0;
+    setInterval(function(){
+      marginLeftValue += 10;
+      div.style.marginLeft = marginLeftValue + "px";
+    }, 1000);
+  </script>
+</body>
+</html>

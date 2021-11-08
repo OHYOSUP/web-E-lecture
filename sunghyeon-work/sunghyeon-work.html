@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    const div = document.querySelector('div');
+    let widthValue = 200;
+    let heightValue = 200;
+
+    setInterval(function () { // 가리키는 무언가가 없어서 익명함수 =식별자를 붙인다.
+      widthValue = widthValue - 10;
+      div.style.width = widthValue + 10 + 'px';
+      heightValue = heightValue - 10;
+      div.style.height = heightValue + 10 + 'px';
+    }, 500);
+
+    if (div !== widthValue) {
+      // 100px 밑으로 내려가면 배경 색상을 변경하고싶습니다.
+    }
+
+  </script>
+</body>
+
+</html>

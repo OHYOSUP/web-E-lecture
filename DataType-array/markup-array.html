@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>markup-array</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Yeon+Sung&display=swap"
+    rel="stylesheet">
+  <style>
+    /* reset */
+    html,
+    body,
+    ul,
+    li {
+      padding: 0;
+      margin: 0;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-family: 'Yeon Sung', cursive;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      /* flex setting */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li class='listItem'>배열(array)은 여러개의 변수를 한 번에</li>
+    <li class='listItem'>선언해 다룰 수 있는 자료형입니다.</li>
+    <li class='listItem'>배열은 대괄호[]를 사용해 생성하고</li>
+    <li class='listItem'>내부의 값을 쉼표(,)로 구분해 입력합니다.</li>
+    <li class='listItem'>배열 내부에 들어있는 값을 요소(element)라고 합니다.</li>
+    <li class='listItem'>어떠한 종류의 자료형도 요소가 될 수 있습니다.</li>
+  </ul>
+  <script>
+    // initial
+    const ulTag = document.querySelector('ul');
+    // 새로운 식별자 메서드 쿼리셀렉터'올' 
+    const listItem = document.querySelectorAll('.listItem');
+    console.dir(listItem);
+    console.dir(ulTag.style);
+    // styling
+    // ulTag.style.border = '1px solid red';
+    ulTag.style.listStyleType = 'none';
+    ulTag.style.textAlign = 'center';
+    ulTag.style.fontSize = '2rem';
+    ulTag.style.lineHeight = '5rem';
+    console.log(listItem);
+    // listItem 쿼리셀렉터는 노드리스트라는 배열을 리턴받긴 했지만, 
+    // 여전의 DOM 객체속 배열이기 떄문에 완전하지 않다.
+    // 자바스크립트의 완전한 배열로는 사용하기는 어렵기 떄문에
+    // 새로운 배열에 아래의 for 반복문을 이용해 push라는 메서드로 재조합 한다. 
+    let liTagArr = [];
+    for (let i = 0; i < listItem.length; i++) {
+      liTagArr.push(listItem[i]);
+      liTagArr[i].style.display = 'none';
+    }
+    console.log(liTagArr);
+    // 
+    let idx = 0;
+    const textTpying = setInterval(function () {
+      if (idx < liTagArr.length) {
+        liTagArr[idx].style.display = 'list-item';
+        idx += 1;
+      } else {
+        clearInterval(textTpying);
+      }
+    }, 2000);
+  </script>
+</body>
+
+</html>

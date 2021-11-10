@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arrow-event</title>
+</head>
+<body>
+  <button id ='decrease'>Decrease</button>
+  <button id ='increase'>Increase</button>
+  <p id ='p-data'></p>
+  <script>
+    // init 해보기
+    const decrease = document.querySelector('#decrease');
+    const increase = document.querySelector('#increase');
+    console.log(decrease);
+    let pData = document.querySelector('#p-data');
+    // *******
+    let count = 2;
+    pData.textContent = count;
+    // event setting
+    decrease.addEventListener('mouseenter', function() {
+      count = count - 1;
+      pData.textContent = count;
+    });
+    // *******************
+    increase.addEventListener('mouseenter', function() {
+      count = count + 1;
+      pData.textContent = count;
+    });
+  </script>
+</body>
+</html>

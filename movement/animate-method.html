@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #item {
+      width: 100px;
+      height: 100px;
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id='item'></div>
+
+  <script>
+    const item = document.querySelector('#item');
+    console.log(item);
+    // animate method는 첫번째 인자로, 배열을 받는다.
+    // 두번째 인자로 객체를 받는다.
+
+    // 첫번째 인자에는 키프레임 성격으로 스코프를 셋팅한다.
+    // 두번째 인자에는 애니메이팅의 각종 속성을 옵션으로 넣을 수 있다.
+    item.animate([
+      { width: '100px' },
+      { width: '1000px' },
+      { width: '500px' }
+    ],
+      {
+        duration: 1000,
+        fill: "forwards"
+      });
+
+
+  </script>
+</body>
+
+</html>

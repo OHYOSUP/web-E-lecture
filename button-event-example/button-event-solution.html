@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float</title>
+  <style>
+    #item-1 {width:100px; height:100px; background-color: chocolate;}
+    #item-2 {width:100px; height:100px; background-color: green;}
+
+  </style>
+</head>
+<body>
+  <div id="item-1">item1</div>
+  <div id="item-2">item2</div>
+  <script>
+    // init
+    const itemOne = document.querySelector('#item-1');
+    const itemTwo = document.querySelector('#item-2');
+    // styling
+    itemTwo.style.opacity = 0;
+    // event
+    itemOne.addEventListener('click', function() {
+      let value = 0;
+      itemTwo.animate([
+        {
+          opacity:0,
+          width:"100px"
+        },
+        { 
+          opacity:1,
+          width:"300px"
+        }
+      ], {
+        duration: 1000,
+        fill:"forwards"
+      });
+    });
+
+  </script>
+</body>
+</html>

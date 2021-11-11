@@ -12,6 +12,7 @@
       height: 100px;
       background-color: aquamarine;
     }
+
   </style>
 </head>
 
@@ -24,17 +25,24 @@
     console.log(item);
     // animate method는 첫번째 인자로, 배열을 받는다.
     // 두번째 인자로 객체를 받는다.
-
     // 첫번째 인자에는 키프레임 성격으로 스코프를 셋팅한다.
     // 두번째 인자에는 애니메이팅의 각종 속성을 옵션으로 넣을 수 있다.
-    item.animate([
-      { width: '100px' },
-      { width: '1000px' },
-      { width: '500px' }
-    ],
+    item.animate(
+      [
+      // 배열안에 넣고싶은 속성들 막 넣어보기
+      { 
+        width: "100px",
+        height: "100px"
+      },
+      {
+        width : "1000px",
+        height: "1000px"
+      }
+      
+      ],
       {
         duration: 1000,
-        fill: "forwards"
+        iterations : Infinity
       });
 
 

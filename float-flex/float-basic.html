@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float-basic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap" rel="stylesheet">
+  <style>
+    html, body, div, p {padding:0; margin:0; box-sizing: border-box; font-family: 'Oswald', sans-serif;}
+
+    #container {
+      max-width: 100vw;
+      min-height: 100vh;
+      background-color: #c8c8c8;
+      position:relative;
+    }
+
+    #post-box {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      /* border: 1px solid red; */
+      width: 80vw;
+    }
+
+    #post-box div {
+      width:30vw;
+      height:30vh;
+      color:#ccc;
+      background-color: grey;
+      text-align: center;
+      padding-top : 10vw;
+      margin-right: 1vw;
+      margin-top: 1vw;
+      margin-bottom: 0.5vw;
+      background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/2560px-Image_created_with_a_mobile_phone.png);
+      background-position: 60% 40%;
+
+      /* float attribute set */
+      float:left;
+    }
+
+    #post-box p {
+      text-align: justify;
+      margin-top: 1vw;
+      margin-right: 1vw;
+      font-weight: 200;
+      font-size: 1rem;
+      align: 1.5rem;
+    }
+
+    #post-box p span {
+      font-weight: 500;
+    }
+
+    #post-box p::after {
+      content:"";
+      display: block;
+      clear: both;
+    }
+
+    #post-box aside {
+      /* margin 값 때문에 width값 -1함 */
+      width: 79vw;
+      height: 10vh;
+      background-color: khaki;
+      margin-top:1vw;
+      padding-top:1vw;
+      
+    }
+    #post-box aside p {
+      font-weight: 200;
+      font-size:0.8rem;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <section id="post-box">
+      <div>image item block</div>
+      <p>
+        <span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quia sunt maiores sed dolore, nulla ea minus distinctio aspernatur provident quisquam beatae eos rerum. Possimus animi rem eveniet quasi, totam provident!
+      In quos provident optio impedit ab enim consequuntur aut laborum atque ullam! Accusamus cumque ut ex alias, assumenda impedit laborum aspernatur, possimus quod expedita praesentium dolorum dolores amet, aliquam porro.
+      In nesciunt repellat repudiandae iusto nostrum? Nesciunt maxime libero eveniet quidem deserunt quis necessitatibus officia, omnis est, at, amet voluptas excepturi perspiciatis quasi laboriosam quibusdam officiis quaerat eligendi beatae impedit?
+      Perferendis, magni eaque eum temporibus obcaecati fuga repellat molestias aliquid ipsam voluptates voluptate ducimus adipisci facilis repellendus eos ratione alias animi, quam dignissimos totam dolor est! Molestias corporis ut cumque.
+      Maiores non a expedita aliquam ipsum recusandae illo hic numquam dolore ratione laborum ipsam dolorum adipisci, dignissimos ut eos iste quas quasi sed animi culpa. Eum quasi voluptatibus vel! Autem?
+      Et aliquam totam nisi enim possimus sit dolores recusandae incidunt deleniti! Similique tenetur facere aliquid quaerat velit molestiae dolore voluptate laborum aliquam? Iste fugiat animi doloribus reiciendis, dolore adipisci nemo.
+      Recusandae voluptatibus quibusdam veniam quod doloremque minus illum sapiente explicabo distinctio facilis asperiores voluptate velit sed dignissimos doloribus et temporibus molestiae quas assumenda officia, consequuntur, necessitatibus cum nemo nesciunt! Provident!
+      Itaque quasi deleniti modi qui quam libero nostrum sed consectetur, dolores tempora exercitationem dolore atque neque minima? Totam neque, deserunt porro doloremque rerum quod, tempore quidem saepe id inventore fuga?
+      Dolore sit reprehenderit, recusandae fuga iste enim ipsum ut doloribus expedita et earum eveniet doloremque quas sequi alias consequuntur accusantium, aperiam quam? Maxime facilis vitae nemo sunt cupiditate atque modi!
+      Reprehenderit delectus veritatis deserunt ex, aliquid repudiandae doloremque id ut blanditiis quis nisi veniam autem ad cumque? Saepe hic nemo, quibusdam impedit, omnis corporis nihil quidem, illo obcaecati ad officia!quas assumenda officia, consequuntur, necessitatibus cum nemo nesciunt! Provident!
+      Itaque quasi deleniti modi qui quam libero nostrum sed consectetur, dolores tempora exercitationem dolore atque neque minima? Totam neque, deserunt porro doloremque rerum quod, tempore quidem saepe id inventore fuga?
+      Dolore sit reprehenderit, recusandae fuga iste enim ipsum ut doloribus expedita et earum eveniet doloremque quas sequi alias consequuntur accusantium, aperiam quam? Maxime facilis vitae nemo sunt cupiditate atque modi!
+      Reprehenderit delectus veritatis deserunt ex, aliquid repudiandae doloremque id ut blanditiis quis nisi veniam autem ad cumque? Saepe hic nemo, quibusdam impedit, omnis corporis nihil quidem, illo obcaecati ad officiaquas assumenda officia, consequuntur, necessitatibus cum nemo nesciunt! Provident!
+      Itaque quasi deleniti modi qui quam libero nostrum sed consectetur, dolores tempora exercitationem dolore atque neque minima? Totam neque, deserunt porro doloremque rerum quod, tempore quidem saepe id inventore fuga?
+      Dolore sit reprehenderit, recusandae fuga iste enim ipsum ut doloribus expedita et earum eveniet doloremque quas sequi alias consequuntur accusantium, aperiam quam? Maxime facilis vitae nemo sunt cupiditate atque modi!
+      Reprehenderit delectus veritatis deserunt ex, aliquid repudiandae doloremque id ut blanditiis quis nisi veniam autem ad cumque? Saepe hic nemo, quibusdam impedit, omnis corporis nihil quidem, illo obcaecati ad officia</p>
+
+      <aside>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quis id officiis tempore suscipit possimus vitae corrupti quam similique harum officia est quos, error qui explicabo, optio dicta laboriosam maiores.
+        Ut facere, sint tenetur eum pariatur laudantium eos atque molestias provident beatae sapiente animi voluptatum. Eveniet, vero, ipsam est consequatur obcaecati harum adipisci ratione iusto impedit voluptatum soluta a veritatis!
+        Tenetur cumque veniam dolore minus facilis similique neque qui porro eos distinctio delectus quidem laboriosam ipsum amet blanditiis saepe unde, velit dolorum pariatur ipsam natus? Quod nulla amet aut impedit!</p>
+
+      </aside>
+
+
+    </section>
+  </div>
+</body>
+</html>

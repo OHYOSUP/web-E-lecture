@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,16 +81,47 @@
       padding-top: 1vw;
 
     }
-
     #post-box aside p {
       font-weight: 200;
       font-size: 0.8rem;
     }
+
+    /* click-button styling */
+   #click-button {
+      /* position set */
+      position: fixed;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      padding-top: 30px;
+      text-align: center;
+      /* size */
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      /* color */
+      background-color: cadetblue;
+      color:#fff;
+      cursor: pointer;
+   } 
+
+   #click-button:hover {
+     width:200px;
+     height:200px;
+     padding-top: 80px;
+     border-radius: 100px;
+
+   }
+
   </style>
 </head>
 
 <body>
+  
+  
   <div id="container">
+    <div id="click-button">button click</div>
     <section id="post-box">
       <div>image item block</div>
       <p>
@@ -135,7 +165,6 @@
         Reprehenderit delectus veritatis deserunt ex, aliquid repudiandae doloremque id ut blanditiis quis nisi veniam
         autem ad cumque? Saepe hic nemo, quibusdam impedit, omnis corporis nihil quidem, illo obcaecati ad officia
       </p>
-
       <aside>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quis id officiis tempore suscipit
           possimus vitae corrupti quam similique harum officia est quos, error qui explicabo, optio dicta laboriosam
@@ -147,29 +176,22 @@
           ipsum amet blanditiis saepe unde, velit dolorum pariatur ipsam natus? Quod nulla amet aut impedit!</p>
 
       </aside>
-
-
     </section>
     <!-- script set -->
 
     <script>
-      console.log('scope');
-      // function scope
-      // block scope
-
-      // global variable
-      // local variable
-
+      // init
       const container = document.querySelector('#container');
       const postBox = document.querySelector('#post-box');
       const postImg = document.querySelector('#post-box div');
       const postParagraph = document.querySelector('#post-box p');
       const asideTag = document.querySelector('#container aside');
+      // main event identifier
+      const clickButton = document.querySelector('#click-button');
+      //  ******* removeProperty
 
 
     </script>
-
   </div>
 </body>
-
 </html>

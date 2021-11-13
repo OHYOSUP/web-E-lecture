@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fade example</title>
+  <style>
+    #item {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- id 값 item 인 div element는 적당한크기의 사각형, 적당한 색깔을 sheet에서 설정해주었다. -->
+  <div id="item"></div>
+  <!-- srcipt -->
+  <script>
+    // init
+    const item = document.querySelector('#item');
+    // javascript 에서 제어할 수 있도록 문서에 작성된 아이디 값 div element를 초기설정하였다.
+
+    // styling
+    console.dir(item)
+    // opacity 값의 키값을 찾기 위해 디버깅 진행 -> 객체접근의도
+    let currentOpacityValue = 0;
+    item.style.opacity = currentOpacityValue;
+    // 28행의 명령으로 인해 opacity 값을 0으로 재할당하여 안보이는 것으로 제어하였다.
+    // checkpoint : 브라우저에서 동적으로 값이 바뀌었는지 확인 할 것
+    // checkpoint : item DOM element의 style 객체에 다른 값들이 무엇이 있는지 확인 할 것
+    const fadeIn = setInterval(function () {
+      // if조건문의 조건식 설정 논리 : opacity 값이 1보다 작다면 true의 알고리즘을 실행 할 것
+      if (currentOpacityValue < 1) {
+        currentOpacityValue += 0.1;
+        // 초기설정된 변수 currentOpaciryValue의 값이 정해진 시간마다 0.1 씩 더해지고 다시 대입될것 아래의 행과 같은 문법
+        // currentOpacityValue = currentOpacityValue + 0.1;
+        item.style.opacity = currentOpacityValue;
+        // 더해진 값이 다시 item의 style 객체 opacity 값으로 대입되도록 알고리즘 작성
+      } else {
+        // else, 즉 설정된 조건식에서 참이 설립되지 않는다면 else 구문을 실행하게 될 것 
+        // 조건식이 참이 아니라는 것은 즉 변수 값이 1보다 크게 되었다는 뜻
+
+        // setInterval에 식별자 이름 fadeIn을 달아주어 종료시키는 메서드 clearInterval을 제어할 수 있도록 의도
+        // setInterval은 익명함수, 즉 이름이 없기 때문에 식별할 수 있도록 하는 것이 편리하며 위와 같은 형태로 작성하는 것이 일반적
+        clearInterval(fadeIn);
+
+        console.log('fadeIn setInterval function call : done');
+      }
+      // setIneval의 두번째 매개변수는 작동 간격(밀리세컨드) 이므로, 값을 낮게 설정할 수록 빠르게 변화될 것 
+      // 32로 설정한 것은 일반적인 모니터화면에서의 30fps을 제현하기 위한 의도이며, 자유롭게 값을 바꾸어볼 것
+    }, 32);
+
+    // 응용포인트
+    // 나타나게 하는 fadeIn 알고리즘을 반대로 fadeOut으로 바꾸어볼 것
+  </script>
+</body>
+
+</html>

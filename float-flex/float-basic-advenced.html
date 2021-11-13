@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +63,7 @@
     }
 
     #post-box p span {
-      font-weight: 500;
+      font-weight: 200;
     }
 
     /* ********* 지워보고 테스트 할롬 ::after */
@@ -81,20 +82,20 @@
       padding-top: 1vw;
 
     }
+
     #post-box aside p {
       font-weight: 200;
       font-size: 0.8rem;
     }
 
     /* click-button styling */
-   #click-button {
+    #click-button {
       /* position set */
       position: fixed;
-      top:50%;
-      left:50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
-      padding-top: 30px;
       text-align: center;
       /* size */
       width: 100px;
@@ -102,30 +103,24 @@
       border-radius: 50px;
       /* color */
       background-color: cadetblue;
-      color:#fff;
+      color: #fff;
       cursor: pointer;
-   } 
-
-   #click-button:hover {
-     width:200px;
-     height:200px;
-     padding-top: 80px;
-     border-radius: 100px;
-
-   }
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
 
 <body>
-  
-  
+
+
   <div id="container">
-    <div id="click-button">button click</div>
+    <div id="click-button"><span>button click</span></div>
     <section id="post-box">
       <div>image item block</div>
       <p>
-        <span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quia sunt maiores sed dolore, nulla ea
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt maiores sed dolore, nulla ea
         minus distinctio aspernatur provident quisquam beatae eos rerum. Possimus animi rem eveniet quasi, totam
         provident!
         In quos provident optio impedit ab enim consequuntur aut laborum atque ullam! Accusamus cumque ut ex alias,
@@ -189,9 +184,64 @@
       // main event identifier
       const clickButton = document.querySelector('#click-button');
       //  ******* removeProperty
+      const spanTag = clickButton.children[0];
+      spanTag.style.opacity = 1;
+      //  ***********************************************
+      let clickCount = 0;
+      clickButton.addEventListener('click', function () {
+        clickCount += 1;
+        const px = 'px';
+        // value number
+        const clientWidthValue = clickButton.clientWidth;
+        // value string
+        clickButton.style.width = clientWidthValue + px;
+        let getValue = clientWidthValue;
+        let growValue = getValue * 2 / 60;
+        let condition = getValue * 2;
+        clickButton.style.mixBlendMode = 'color-burn';
+        const animateWidth = setInterval(function () {
+          if (getValue < condition) {
+            spanTag.style.opacity -= 0.1;
+            getValue += growValue;
+            clickButton.style.width = getValue + px;
+            clickButton.style.height = getValue + px;
+            clickButton.style.borderRadius = (getValue / 2) + px;
+          } else {
+            clearInterval(animateWidth);
+            console.log('done');
+          }
+        }, 16);
+        console.log(clickCount); // ***********************
+        if (clickCount === 7) {
+          clickButton.style.mixBlendMode = 'multiply';
+        }
+        if (clickCount === 8) {
+          clickButton.remove();
+        }
+      });
+      // ***********************************************************************
+
+      postParagraph.style.opacity = 0;
+      postParagraph.remove();
+      const mainTextArr = postParagraph.innerHTML.split('\n');
+      const makePTag = document.createElement('p');
+      const fadeText = [];
+
+      for (let i = 0; i < mainTextArr.length; i++) {
+        const makeSpanTag = document.createElement('span');
+        makeSpanTag.textContent = mainTextArr[i];
+        fadeText.push(makeSpanTag);
+        postImg.after(fadeText[i]);
+      };
+      // spanTagSort.sort(a - b);
+      // console.log(spanTagSort);
+
+      // console.dir(fadeText);
+      // postImg.after(fadeText);
 
 
     </script>
   </div>
 </body>
+
 </html>

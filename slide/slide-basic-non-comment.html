@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    html,
+    body,
+    ul,
+    li {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f1f3f4;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    #nav {
+      list-style-type: none;
+      border: 1px solid blue;
+
+    }
+
+    #nav li {
+      border: 1px solid red;
+      display: inline-block;
+      float: left;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <ul id="nav">
+      <li class="list-items">item-1</li>
+      <li class="list-items">item-2</li>
+      <li class="list-items">item-3</li>
+      <li class="list-items">item-4</li>
+      <li class="list-items">item-5</li>
+      <li class="list-items">item-6</li>
+      <li class="list-items">item-7</li>
+      <li class="list-items">item-8</li>
+      <li class="list-items">item-9</li>
+      <li class="list-items">item-10</li>
+    </ul>
+    <button>slider</button>
+  </div>
+
+  <script>
+    const container = document.querySelector('#container');
+    const nav = document.querySelector('#nav');
+    const sliderButton = document.querySelector('button');
+    const listItems = document.querySelectorAll('.list-items');
+
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].style.opacity = 0;
+      listItems[i].style.display = "none";
+    }
+    let index = 0;
+    sliderButton.addEventListener('click', function () {
+      if (index < listItems.length) {
+        listItems[index].style.opacity = 1;
+        listItems[index].style.display = "list-item";
+        if (listItems[index].previousElementSibling !== null) {
+          listItems[index].previousElementSibling.style.display = "none";
+        }
+        index += 1;
+      } else {
+        listItems[index - 1].style.display = "none";
+        listItems[0].style.display = "list-item";
+        index = 1;
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    html,
+    body,
+    ul,
+    li,
+    p {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f1f3f4;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    #nav {
+      list-style-type: none;
+      width: 50vw;
+      height: 10vh;
+      background-color: darkgrey;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5vw;
+
+      overflow: hidden;
+    }
+
+    #nav li {
+      width: 50vw;
+      height: 10vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #nav li p {
+      width: inherit;
+      height: inherit;
+      /* background-color: antiquewhite; */
+    }
+
+    button {
+      width: 10vw;
+      height: 4vh;
+      border: none;
+      background-color: darkseagreen;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <ul id="nav">
+      <li class="list-items">
+        <p>item-1</p>
+      </li>
+      <li class="list-items">
+        <p>item-2</p>
+      </li>
+      <li class="list-items">
+        <p>item-3</p>
+      </li>
+      <li class="list-items">
+        <p>item-4</p>
+      </li>
+      <li class="list-items">
+        <p>item-5</p>
+      </li>
+      <li class="list-items">
+        <p>item-6</p>
+      </li>
+      <li class="list-items">
+        <p>item-7</p>
+      </li>
+      <li class="list-items">
+        <p>item-8</p>
+      </li>
+      <li class="list-items">
+        <p>item-9</p>
+      </li>
+      <li class="list-items">
+        <p>item-1</p>
+      </li>
+    </ul>
+    <button>slider</button>
+  </div>
+
+  <script>
+
+
+    const container = document.querySelector('#container');
+    const nav = document.querySelector('#nav');
+    const sliderButton = document.querySelector('button');
+    const listItems = document.querySelectorAll('.list-items');
+    const colorSet = ["#F9F3DF", "#CDF2CA", "#FFDEFA", "#FFC898", "#F0E9D2", "#F0E9D2", "#E6DDC4", "#678983", "#181D31", "#f1f3f4"];
+
+
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].style.opacity = 0;
+      listItems[i].style.display = "none";
+      listItems[i].style.marginLeft = 0;
+    }
+    let index = 0;
+    sliderButton.addEventListener('click', function () {
+      if (index < listItems.length) {
+        let opacityValue = 0;
+        const fadeIn = setInterval(function () {
+          opacityValue += 0.1
+          console.log(opacityValue);
+          listItems[index - 1].style.opacity = opacityValue;
+          if (opacityValue > 1) {
+            clearInterval(fadeIn);
+          }
+        }, 100);
+        listItems[index].style.display = "list-item";
+        listItems[index].style.backgroundColor = colorSet[index];
+        if (listItems[index].previousElementSibling !== null) {
+          listItems[index].previousElementSibling.style.display = "none";
+        }
+        index += 1;
+      } else {
+        listItems[index - 1].style.display = "none";
+        listItems[0].style.display = "list-item";
+        listItems[0].style.backgroundColor = colorSet[0];
+        index = 1;
+      }
+    });
+  </script>
+</body>
+
+</html>

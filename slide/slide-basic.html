@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    html, body, ul , li {
+      padding: 0;
+      margin :0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width : 100vw;
+      height: 100vh;
+      background-color: #f1f3f4;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:100vw;
+      height:100vh;
+      flex-direction: column;
+    }
+
+    #nav {
+      list-style-type: none;
+      border: 1px solid blue;
+
+    }
+    
+    #nav li {
+      border: 1px solid red;
+      display: inline-block;
+      float: left;
+    }
+    /* handler */
+
+    .hidden {
+      display: none;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div id="container">
+    <ul id="nav">
+      <li class="list-items">item-1</li>
+      <li class="list-items">item-2</li>
+      <li class="list-items">item-3</li>
+      <li class="list-items">item-4</li>
+      <li class="list-items">item-5</li>
+      <li class="list-items">item-6</li>
+      <li class="list-items">item-7</li>
+      <li class="list-items">item-8</li>
+      <li class="list-items">item-9</li>
+      <li class="list-items">item-10</li>
+    </ul>
+    <button>slider</button>
+  </div>
+
+  <script>
+
+    const container = document.querySelector('#container');
+    const nav = document.querySelector('#nav');
+    const listItems = document.querySelectorAll('.list-items');
+    const sliderButton = document.querySelector('button');
+    console.log(container);
+    console.log(nav);
+    console.log(listItems);
+    console.log(listItems.length);
+
+    // li태그 '들' 모두 안보이게끔 투명하게 처리
+    // li태그 '등' 모두 요소가 문서에 나타나지 않게끔 hidden 클래스 추가 방식으로 display:none;
+    for(let i = 0; i < listItems.length; i++) {
+      listItems[i].style.opacity = 0;
+      listItems[i].classList.add('hidden');
+    }
+    // slider 버튼을 클릭했을 때 
+    sliderButton.addEventListener('click', function() {
+     
+      
+    });
+
+
+
+
+
+
+  </script>
+</body>
+</html>

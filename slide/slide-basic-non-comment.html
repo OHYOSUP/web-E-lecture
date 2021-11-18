@@ -71,20 +71,39 @@
     const container = document.querySelector('#container');
     const nav = document.querySelector('#nav');
     const sliderButton = document.querySelector('button');
+
+
     const listItems = document.querySelectorAll('.list-items');
 
+
+
+    //  자바스크립트로 간단하게 마크업 함
     for (let i = 0; i < listItems.length; i++) {
       listItems[i].style.opacity = 0;
       listItems[i].style.display = "none";
     }
+
+
+
+
     let index = 0;
     sliderButton.addEventListener('click', function () {
+
+
+
+
+
       if (index < listItems.length) {
+
+
         listItems[index].style.opacity = 1;
         listItems[index].style.display = "list-item";
+
+
         if (listItems[index].previousElementSibling !== null) {
           listItems[index].previousElementSibling.style.display = "none";
         }
+        
         index += 1;
       } else {
         listItems[index - 1].style.display = "none";

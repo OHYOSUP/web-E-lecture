@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vertical-nav-solution</title>
+
+  <style>
+    /* reset */
+    html,
+    body,
+    ul,
+    li,
+    a,
+    main,
+    section {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    /* style */
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: #ccc;
+    }
+
+    #container {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    #container nav {
+      width: 10vw;
+      height: 100vh;
+      background-color: aliceblue;
+    }
+
+    /* 작업순서 : 3 */
+    /* 간단한 스타일링 */
+    main {
+      margin-left: 2vw;
+      width: 30vw;
+      height: 30vh;
+      border: 1px solid #ff6666;
+    }
+
+    main section {
+      background-color: darkseagreen;
+      width: 30vw;
+      height: 30vh;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <nav>
+      <button id="close-button">nav close button</button>
+      <ul id="nav-ul">
+        <!-- 작업순서 : 4 -->
+        <!-- 아래의 main > section 태그와 li 태그를 핸들링하기 위해 class 마다 '문자열로 된 숫자'를 따로 지정함 -->
+        <li class='list-1'>지금 아무것도 하지 않으면서</li>
+        <li class='list-2'>내일 무언가가 바뀌길 바라는 것은</li>
+        <li class='list-3'>후회를 만드는 훌륭한 자세이다.</li>
+      </ul>
+    </nav>
+    <button id="open-button">nav open button</button>
+    <!-- 작업순서 : 1 -->
+    <!-- nav 안에 li들을 클릭하면 사진이 보였으면 좋겠다. -->
+    <!-- 사진이 보일 컨테이너 마크업 -->
+    <main>
+      <section class='picture-1'>picture-1</section>
+      <section class='picture-2'>picture-2</section>
+      <section class='picture-3'>picture-3</section>
+    </main>
+  </div>
+
+  <script>
+    const navUl = document.querySelector('#nav-ul');
+    const openButton = document.querySelector('#open-button');
+    // ********************************
+    // 작업순서 : 2
+    // 식별자 querySelectorAll 로 식별하여 '배열'로 받았다.
+    const pictureArr = document.querySelectorAll('main section');
+    console.dir(pictureArr);
+    const listItemArr = document.querySelectorAll('#nav-ul li');
+    console.dir(listItemArr);
+
+    // 작업순서 : 3
+    // 모든 section 태그의 display:none; 으로 변경
+    for (let i = 0; i < pictureArr.length; i++) {
+      pictureArr[i].style.display = "none";
+    }
+
+    navUl.style.display = 'none';
+
+    openButton.addEventListener('click', function () {
+      navUl.style.display = 'block';
+    });
+    const closeButton = document.querySelector('#close-button');
+
+    closeButton.addEventListener('click', function () {
+      navUl.style.display = 'block';
+    });
+    navUl.addEventListener('mouseover', function (event) {
+      event.target.style.backgroundColor = "#ff6666";
+    });
+    // mouseout event를 통해 마우스가 떠났을때 원상태로 돌아오게 이벤트 발생시킴
+    navUl.addEventListener('mouseout', function (event) {
+      event.target.style.backgroundColor = "";
+    });
+
+    // nav 안에 li들을 클릭하면 사진이 보였으면 좋겠다.
+    // 작업순서 : 5 *****************************************
+    // event.target, 즉 선택한 요소의 className 객체 키값을 접근하는 방식으로 알고리즘 설계함
+    // 마크업에서 각각의 태그마다 번호를 매긴 클래스 사전구성
+
+    navUl.addEventListener('click', function (event) {
+      console.dir(event.target);
+      console.log(event.target.className);
+
+      // ***** 핵심 알고리즘 ******************************
+      let getClassLastString = event.target.className.charAt(event.target.className.length - 1);
+      // 위의 getClassLastString라는 이름으로 만들어 놓은 변수를 사람말로 표현하면
+      // "선택한 요소의 클래스 있지? 그 클래스 끝자리의 숫자를 찾고싶어" 
+      // charAt() 이라는 메서드의 argument, return을 확인할 것
+      // 문자열 중 마지막인 숫자를 얻기 위해 length-1 <-- 디자인 패턴을 사용
+      // 위의 console.log, console.dir을 확인할 것
+      console.log(getClassLastString);
+      // console을 확인한바 리턴이 '문자열로 된 숫자'임을 확인함
+      // 아래의 getIndex는 문자열 타입을 -> 숫자로 바꾸는 내장함수 Number() (첫글자가 대문자)
+      let getIndex = Number(getClassLastString);
+      console.log(getIndex);
+      // 위의 콘솔에선 클래스의 마지막 문자열로된 숫자가 -> 데이터타입 숫자로 바뀌었음을 확인할 수 있음
+      for (let i = 0; i < pictureArr.length; i++) {
+        if (pictureArr[i].classList.contains(`picture-${getIndex}`)) {
+          // 조건식 설명 "classList 객체에 ()와 같은 클래스가 존재하는지 여부" 존재한다면 "참"
+          pictureArr[i].style.display = "block";
+          pictureArr[i].style.color = "red";
+        } else {
+          // 존재하지 않는다면 "거짓" 
+          pictureArr[i].style.display = "none";
+        }
+      }
+    });
+
+
+
+  </script>
+
+
+</body>
+
+</html>

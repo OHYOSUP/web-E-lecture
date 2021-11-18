@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>accodian-solution</title>
+
+  <style>
+    /* reset */
+    html,
+    body,
+    ul,
+    li,
+    a {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    /* button {
+      display: block;
+    } */
+
+    /* style */
+    body {
+      /* 전체페이지사이즈에 옅은회색 */
+      width: 100vw;
+      height: 100vh;
+      background-color: #ccc;
+    }
+
+    #container {
+      /* flex 타입으로 자식들이 모두 정중앙에 모이도록 스타일링 */
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      /* id contaniner의 부모element는 body이다. */
+      /* 부모element에 이미 사이즈가 정해져있기때문에 */
+      /* container의 사이즈는 따로 정해주지 않았다. (상속) */
+    }
+
+    #container nav {
+      width: 30vw;
+      height: 100vh;
+      background-color: aliceblue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- container div 생성 -->
+  <div id="container">
+    <nav>
+      <button>close</button>
+      <ul id="singer">
+        <li>black maba</li>
+        <li>next level</li>
+        <li>savage</li>
+      </ul>
+    </nav>
+    <button>asepa</button>
+  </div>
+
+  <!-- 
+  알고리즘 설계
+  1. aspa 엘리먼트를 '클릭'하면 nav가 보였으면 좋겠다.
+  -> 사전조치 nav태그가 안보이는 상태로 만들어놓는다.
+  -> aspa 엘리먼트를 클릭하면 '보이는상태'로 만들어놓는다.
+-->
+
+
+</body>
+
+</html>

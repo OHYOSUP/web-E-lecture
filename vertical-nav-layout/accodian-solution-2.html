@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vertical-nav-solution</title>
+
+  <style>
+    /* reset */
+    html,
+    body,
+    ul,
+    li,
+    a {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    /* style */
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: #ccc;
+    }
+
+    #container {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+
+    #container nav {
+      width: 10vw;
+      height: 100vh;
+      background-color: aliceblue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <nav>
+      <button id="close-button">nav close button</button>
+      <ul id="nav-ul">
+        <li>지금 아무것도 하지 않으면서</li>
+        <li>내일 무언가가 바뀌길 바라는 것은</li>
+        <li>후회를 만드는 훌륭한 자세이다.</li>
+      </ul>
+    </nav>
+    <button id="open-button">nav open button</button>
+  </div>
+
+  <!-- 알고리즘 설계 -->
+  <script>
+    // 1. nav open button을 누르면, nav태그가 보였으면 좋겠다.
+    // -> 필요한 사전작업 : nav태그를 미리 안보이는 상태로 만들어놓는다.
+    // -> 식별 작업 : 식별자를 설정한다.
+    const navUl = document.querySelector('#nav-ul');
+    // ul 태그 식별
+    const openButton = document.querySelector('#open-button');
+    // open-button 태그 식별
+
+    navUl.style.display = 'none';
+    // <nav> 태그의 display 값을 none으로 변경하였다.
+
+    openButton.addEventListener('click', function () {
+      // openButton을 'click' 하면 {} 알고리즘을 실행한다.
+      navUl.style.display = 'block';
+    });
+    // *********************************************************
+    // 2. nav close button을 누르면 nav가 사라졌으면 좋겠다.
+    const closeButton = document.querySelector('#close-button');
+    // close-button 태그 식별
+
+    closeButton.addEventListener('click', function () {
+      // closeButton을 'click' 하면 {} 알고리즘을 실행한다.
+      navUl.style.display = 'block';
+    });
+
+    // ******************
+
+    // nav-ul이 자식엘리먼트 li hover 하면 색깔이 바뀌었으면 좋겠다.
+    navUl.addEventListener('mouseover', function (event) {
+      // li <-- 태그를 가리키는 식별자가 아닌, 부모를 가리키는 navUl인 것을 주목
+      console.dir(event.target);
+      // addEventListener의 두번째 매개변수자리에 들어오는 '콜백함수'에는 event 객체라는 특별한 매개변수가 마련되어있다. 
+      // 이벤트를 실행한 엘리먼트를 'target'이라는 키값으로 반환해준다.
+      // 다시말해서 li태그에 일일히 이벤트메서드를 달아주지 않아도 이벤트 발생을 가능하게끔 해준다. 여기서 주요한 것은 부모가되어주는 컨테이너가 중요
+
+      // 사람말로 풀면
+      // " '이거'를 클릭해줘. "
+      // openButton, closeButton 에 이벤트 달아준것보다 유연하다.
+      // 대신에 제대로 선택되고 있는지 반드시 확인해야한다.
+
+      // nav-ul이 자식엘리먼트 li hover 하면 색깔이 바뀌었으면 좋겠다.
+      event.target.style.backgroundColor = "#ff6666";
+      // 이벤트를 발생시킨 target의 배경색깔을 바꾸어주었다.
+      // CSS hover와 다른점은 "동적으로" 문서에 배경색을 새겨주었기때문에다시 돌리고 싶다면 mouseout('마우스가떠나면') 이벤트를 달아주어 원상태의 값을 다시 새겨야 한다.
+
+    });
+
+
+
+  </script>
+
+
+</body>
+
+</html>

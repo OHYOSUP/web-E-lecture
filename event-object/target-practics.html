@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section>1</section>
+  <section>2</section>
+  <section>3</section>
+  <section>4</section>
+  <section>5</section>
+
+  <script>
+    const body = document.querySelector('body');
+
+    // 선언방식
+    body.addEventListener('click', function(e) {
+      console.log(e.target.innerHTML);
+    });
+
+    // 화살표 함수 방식 () => {} ES6
+    body.addEventListener('clcik', (e) => {
+      console.log(e.target.innerHTML);
+    });
+
+    // binding (바인딩) 
+    function variableEvent (target) {
+      target.addEventListener('click', function() {});
+      target.addEventListener('mouseover', function() {});
+      target.addEventListener('mouseout', function() {});
+      target.addEventListener('wheel', function() {});
+      target.addEventListener('dblclick', function() {});
+    }
+
+
+  </script>
+
+</body>
+</html>

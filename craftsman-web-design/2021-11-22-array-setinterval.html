@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>11111111111111</button>
+  <script>
+    const btn = document.querySelector('button');
+    const arr = ['나는', '날개달린', '호랑이'];
+    // 숫자놀음으로 생각하고 있는 것
+    
+    let howMuchClick = 0;
+    let idx = 0;
+    btn.addEventListener('click', function() {
+      howMuchClick += 1;
+      console.log(howMuchClick);
+      if(idx < arr.length) {
+        console.log(arr[idx]);
+        idx = idx + 1;
+      } else {
+        idx = 0;
+      }
+    });
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // "숫자놀음"할 변수를 만들어준다면, 많이 편해진다.
+    // setInterval(function(){
+    //   if(index < arr.length) {
+    //     console.log(arr[index]);
+    //     index += 1;
+    //   } else {
+    //     index = 0;
+    //   }
+      
+    // }, 1000);
+
+
+
+  </script>
+  
+</body>
+</html>

@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
   <style>
     * {
       padding: 0;
@@ -16,9 +19,13 @@
     body {
       background: rgb(146, 195, 198);
       background: radial-gradient(circle, rgba(146, 195, 198, 1) 0%, rgba(156, 186, 222, 1) 100%);
+      overflow-x: hidden;
     }
 
     header {
+      /* sticky */
+      position: sticky;
+      top: 0;
       width: 100vw;
       height: 6vh;
       background: rgb(156, 186, 222);
@@ -35,14 +42,15 @@
       color: rgb(220, 244, 245);
       /* flex */
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-around;
       align-items: flex-start;
-
     }
 
     /* main menu */
-    header ul li {
+    header ul>li {
+      width: 15vw;
       padding: 1vw;
+      text-align: center;
       /* border: 1px solid chocolate; */
     }
 
@@ -56,10 +64,29 @@
 
     header ul li ul li {
       height: 5vh;
+      color: #ddd;
+      mix-blend-mode: difference;
     }
 
     header ul li ul li:nth-child(1) {
       margin-top: 2vh;
+    }
+
+    /* main */
+    main {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main h1 {
+      color: #555;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      font-size: 5rem;
+      font-weight: 100;
+      font-family: 'Roboto', sans-serif;
     }
 
     /* handler */
@@ -121,6 +148,9 @@
     </ul>
   </header>
 
+  <main>
+    <h1>BACK TO THE BASIC</h1>
+  </main>
 
   <script>
     // initial
@@ -135,6 +165,9 @@
       console.log(event.target.children);
       event.target.children[0].classList.toggle('hidden');
     });
+
+
+
 
 
   </script>

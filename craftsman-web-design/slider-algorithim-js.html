@@ -45,12 +45,9 @@
     const slide = document.querySelector('#slide');
     // 배열로 받으면
     const slideItems = document.querySelectorAll('#slide section');
-
     console.log(slide);
     console.log(slideItems);
     console.dir(slideItems[0]);
-
-
     let index = 0;
     const timer = setInterval(function() {
       if(index < slideItems.length - 1) {
@@ -64,15 +61,8 @@
           slideItems[i].style.marginTop = '0px';
         }
         console.log('done');
-
       }
-
     }, 1000);
-    
-
-
-
-
   </script>
 </body>
 </html>

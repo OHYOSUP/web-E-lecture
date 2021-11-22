@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider-algorithme-js</title>
+  <style>
+    * { padding : 0; margin:0; box-sizing: border-box;}
+    #slide {
+      height: 350px;
+      width: 500px;
+      border: 1px solid rosybrown;
+      overflow: hidden;
+    }
+    #slide section {
+      width:500px;
+      height:350px;
+      float:left;
+    }
+    #slide section:nth-child(1){
+      background-color: salmon;
+      /* background-image: url(https://picsum.photos/500/350); */
+    }
+    #slide section:nth-child(2){
+      background-color: darkkhaki;
+      /* background-image: url(https://picsum.photos/500/400/?blur=2); */
+
+    }
+    #slide section:nth-child(3){
+      background-color: darkslateblue;
+      /* background-image: url(https://picsum.photos/500/500); */
+
+    }
+  </style>
+</head>
+<body>
+
+  <div id="slide">
+    <section>img-1</section>
+    <section>img-2</section>
+    <section>img-3</section>
+  </div>
+  <script>
+    const slide = document.querySelector('#slide');
+    const slideItems = document.querySelectorAll('#slide section');
+
+    console.log(slide);
+    console.log(slideItems);
+    console.dir(slideItems[0]);
+
+
+    let index = 0;
+    const timer = setInterval(function() {
+      if(index < slideItems.length - 1) {
+        console.log(index);
+        slideItems[index].style.marginTop = '-350px';
+        index += 1;
+      } else {
+        index = 0;
+        slideItems[index].style.marginTop = '0px';
+        for(let i = 0; i < slideItems.length; i++) {
+          slideItems[i].style.marginTop = '0px';
+        }
+        console.log('done');
+
+      }
+
+    }, 1000);
+    
+
+
+
+
+  </script>
+</body>
+</html>

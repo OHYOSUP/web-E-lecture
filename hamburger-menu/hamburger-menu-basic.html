@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hamburger-menu</title>
+
+  <style>
+    * {
+      padding:0;
+      margin:0;
+      box-sizing: border-box;
+    }
+    #menu {
+      position:sticky;
+    }
+    #menu nav {
+      width: 100px;
+      height: 100px;
+    }
+    #menu nav:nth-child(1) {background-color: cadetblue;}
+    #menu nav:nth-child(2) {background-color: chocolate;}
+  </style>
+  
+  
+</head>
+<body>
+  
+  <div id="menu">
+    <nav id='hamburger-button'>hello</nav>
+    <nav id='hamburger-content'>bye</nav>
+  </div>
+  <script>
+    const hamburgerbutton = document.querySelector('#hamburger-button');
+    const hamburgerContent = document.querySelector('#hamburger-content');
+    // 햄버거 컨텐츠 부분 박스 문서 바깥으로 안보이게 처리
+    const px = 'px';
+    let outLeftValue = -100;
+    hamburgerContent.style.marginLeft = outLeftValue + px;
+    console.log(hamburgerContent.style.marginLeft);
+    
+    // 위의 버튼 부분 마우스 오버했을때 이벤트
+    hamburgerbutton.addEventListener('mouseover', function() {
+        let timer = setInterval(function() {
+          if(outLeftValue <= hamburgerContent.style.width) {
+          hamburgerContent.style.marginLeft = outLeftValue + px;
+          outLeftValue += 1;  
+          } else {
+            clearInterval(timer);
+            console.log('done');
+          } 
+        }, 16);
+      });
+
+
+
+  </script>
+</body>
+</html>

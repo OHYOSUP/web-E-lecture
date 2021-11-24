@@ -83,6 +83,7 @@
   left:-10vw;
 
   mix-blend-mode: multiply;
+  filter:blur(20px);
 }
 
 #container section:nth-child(1) p {

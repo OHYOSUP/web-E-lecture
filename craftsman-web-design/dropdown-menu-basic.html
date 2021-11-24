@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dropdown menu basic</title>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+    
+  </style>
+
+</head>
+<body>
+  <h1>드롭다운 메뉴 기본형</h1>
+  <h2>마크업트리 예시</h2>
+  <p>ul#menu-container>li{main-menu-$}*5>ul.hidden>li{sub-menu-$}*5</p>
+  <h2>자바스크립트 제어</h2>
+  <hr>
+<!-- *********************** -->
+
+  <ul id="menu-container">
+    <li>main-menu-1
+      <ul class="submenu hidden">
+        <li>sub-menu-1</li>
+        <li>sub-menu-2</li>
+        <li>sub-menu-3</li>
+        <li>sub-menu-4</li>
+        <li>sub-menu-5</li>
+      </ul>
+    </li>
+    <li>main-menu-2
+      <ul class="hidden">
+        <li>sub-menu-1</li>
+        <li>sub-menu-2</li>
+        <li>sub-menu-3</li>
+        <li>sub-menu-4</li>
+        <li>sub-menu-5</li>
+      </ul>
+    </li>
+    <li>main-menu-3
+      <ul class="hidden">
+        <li>sub-menu-1</li>
+        <li>sub-menu-2</li>
+        <li>sub-menu-3</li>
+        <li>sub-menu-4</li>
+        <li>sub-menu-5</li>
+      </ul>
+    </li>
+    <li>main-menu-4
+      <ul class="hidden">
+        <li>sub-menu-1</li>
+        <li>sub-menu-2</li>
+        <li>sub-menu-3</li>
+        <li>sub-menu-4</li>
+        <li>sub-menu-5</li>
+      </ul>
+    </li>
+    <li>main-menu-5
+      <ul class="hidden">
+        <li>sub-menu-1</li>
+        <li>sub-menu-2</li>
+        <li>sub-menu-3</li>
+        <li>sub-menu-4</li>
+        <li>sub-menu-5</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+
+    const menuContainer = document.querySelector('#menu-container');
+    // 무엇이 선택되었는지 확인
+    console.log(menuContainer);
+
+    menuContainer.addEventListener('click', function(e) {
+      // event.target이 원하는 item을 선택했는지 확인
+      console.log(e.target);
+      // 자식 element확인 -> 자식 엘리먼트 프로퍼티 children이 배열인것을 확인
+      console.dir(e.target);
+      e.target.children[0].classList.toggle('hidden');
+    });
+
+
+
+
+  </script>  
+  
+</body>
+</html>

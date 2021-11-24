@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    ul,li {list-style: none;}
+    a{text-decoration: none;}
+
+    .po-abs {position: absolute;}
+    .po-rel {position: relative;}
+    .po-fix {position: fixed;}
+    .po-sti {position: sticky;}
+    .fl-lef {float: left;}
+    .fl-rig {float: right;}
+    .flex {display: flex;}
+
+    #wrap {
+      width: 1200px; height: 700px;
+      margin: 0 auto;
+    }
+
+    #wrapper {
+      width: 1200px; height: 700px;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #wrapper #pop {
+      width: 300px; height: 300px;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 10px;
+      justify-content: center;
+      flex-direction: column;
+      /* align-items: center; */
+    }
+
+    #wrapper #pop .off {
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    header {
+      width: 100%; height: 100px;
+      /* border: 1px red solid; */
+      padding: 0 70px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header #logo {
+      width: 90px; height: 60px;
+      background-color: lightblue;
+    }
+
+    header #nav {
+      width: 500px; height: 60px;
+      background-color: lightblue;
+    }
+
+    #main {
+      width: 100%; height: 600px;
+      background-color: lightblue;
+      padding: 100px;
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+
+    #main article {
+      width: 200px; height: 200px;
+      background-color: aliceblue;
+      cursor: pointer;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="wrapper" class="po-abs flex">
+      <div id="pop" class="po-abs flex">
+        <h1>Lorem</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p class="off po-abs">X</p>
+      </div>
+    </div>
+    <header class="flex">
+      <h1 id="logo">
+        logo
+      </h1>
+      <nav id="nav">
+      </nav>
+    </header>
+    <div id="main" class="flex">
+      <article></article>
+      <article></article>
+      <article></article>
+    </div>
+  </div>
+
+  <script>
+    const main = document.querySelector('#main');
+    const pop = document.querySelector('#wrapper');
+    
+    console.dir(main);
+    console.dir(pop);
+
+    pop.style.display= 'none';
+
+    main.addEventListener('click', function(){
+      pop.style.display= "flex"; 
+      //block이나 ""로 해봤지만 안 됨. flex로 바꾸니 됨
+      //디스플레이 상태를 flex로 했기 때문에 기존 상태로 돌리려면 flex를 해야 함
+    });
+
+
+    //x버튼을 누르면 다시 사라진다
+    const off = document.getElementsByClassName('off');
+    console.dir(off);
+
+    // solution 1 : getElementsByClassName method는 배열 값으로 리턴 한다.
+    console.log(off);
+
+
+    // solution 2 : 배열의 접근으로 식별자를 해결하였다. 
+    off[0].addEventListener('click', function(){
+      pop.style.display= 'none';
+    });
+    
+    
+    //사라지지 않는다...
+    //클래스를 아이디로 바꾸면 pop이 사라지지 않고 그냥 떠 있다(우선순위나 아니면 구조 문제...??)
+
+  </script>
+</body>
+</html>

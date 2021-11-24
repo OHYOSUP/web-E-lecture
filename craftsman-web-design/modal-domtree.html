@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom-structuring</title>
+  <style>
+    * {padding:0; margin:0; box-sizing: border-box;}
+
+    #gnb {
+      width: 100vw;
+      height: 5vh;
+      background-color: honeydew;
+      /* positioning */
+      position:sticky;
+      top:0;
+      z-index: 1;
+    }
+
+    #container section {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    #container section:nth-child(1) {background-color: cadetblue;}
+    #container section:nth-child(2) {background-color: gold;}
+    #container section:nth-child(3) {background-color: green;}
+
+
+  </style>
+</head>
+<body>
+  <!-- gnb vs container -->
+  <nav id="gnb">gnb~~~~~~~~~~~~~~~~~~~~~~~</nav>
+  <div id="container">
+    <section></section>
+    <section></section>
+    <section></section>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const gnb = document.querySelector('#gnb');
+      const sectionHeightValue = document.querySelector("#container > section:nth-child(1)");
+      console.dir(sectionHeightValue.offsetHeight);
+      console.dir(gnb);
+      const value = window.scrollY;
+      if(value > sectionHeightValue.offsetHeight) {
+        console.log(`over : ${value}`);
+        gnb.style.height = 20 + "vh";
+      }
+    });
+
+
+
+  </script>
+
+</body>
+</html>

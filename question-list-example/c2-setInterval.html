@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* 초기화 */
+        *
+        {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul,li{
+            list-style: none;
+        }
+
+        /* 전체 */
+
+        #container
+        {
+            width: 1000px;
+            height: 650px;
+            /* border: 1px solid #000; */
+        }
+
+
+        /* 헤더 */
+
+
+        #container>header{
+            width: 200px;
+            height: 650px;
+            background-color: lightgray;
+            float: left;
+        }
+        
+        #container>header>.logo{
+          width: 200px;
+          height: 40px;
+          background-color: lightpink;
+        }
+        #container>header>.top{
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+    
+        }
+        #container>header>.top>li{
+          width: 100px;
+          height: 700px;
+          background-color: lightyellow;
+          cursor: pointer;
+ 
+    
+        }
+     
+        #container>header>.top>li>ul>li{
+        display: flex;
+        justify-content:flex-start;
+        flex-direction: column;
+          width: 100px;
+          height: 50px;
+          background-color: lightskyblue;
+         cursor: pointer;
+        }
+
+        /* visual */
+        #container>.visual{
+            width: 800px;
+            height: 350px;
+            background-color: lightskyblue;
+            overflow: hidden;
+            float: right;
+        }
+        #container>.visual>.img{
+            width: 800px;
+            height: 350px;
+        }
+        #container>.visual>.img:nth-child(1){
+            background-color: lightcoral;
+        }
+        #container>.visual>.img:nth-child(2){
+            background-color: lightgreen;
+        }
+        #container>.visual>.img:nth-child(3){
+            background-color: lightseagreen;
+        }
+        /* nav */
+        #container>nav{
+            width: 800px;
+            height: 200px;
+            float: right;
+            background-color: lightsteelblue;
+        }
+        /* footer */
+        #container>footer{
+            width: 800px;
+            height: 100px;
+            background-color: palegoldenrod;
+            float: right;
+        }
+
+        /* 공통 */
+        .hidden{
+            display: none;
+        }
+     
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    <header>
+            <div class="logo"></div>
+            <ul class="top">
+                <li>축제소개
+                        <ul class="bottom hidden">
+                            <li>초대의 글</li>
+                            <li>축제개요 </li>
+                            <li>축제연혁</li>
+                            <li>오시는길</li>
+                        </ul>
+                </li>
+                <li>행사안내
+                    <ul class="bottom hidden">
+                        <li>셔틀버스안내</li>
+                        <li>행사안내</li>
+                        <li>행사일정</li>
+                        <li>소공연장</li>
+                    </ul>
+                </li>
+                <li>홍보마당
+                    <ul class="bottom hidden">
+                        <li>축제소식</li>
+                        <li>보도자료 </li>
+                        <li>음식레시피</li>
+                    </ul>
+                </li>
+                <li>참여마당
+                    <ul class="bottom hidden">
+                        <li>참가후기</li>
+                        <li>연꽃갤러리 </li>
+                        <li>포토갤러리</li>
+                    </ul>
+                </li>
+            </ul>
+    </header>
+
+    <div class="visual">
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+    </div>
+
+    <nav> 
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </nav>
+
+   <footer>
+        <div class="copy"></div>
+        <div class="sns"></div>
+        <div class="family"></div>
+   </footer>
+         
+    </div>
+
+    <script>
+
+        const $bottom = document.querySelectorAll('header>ul>li>ul');
+        const $top = document.querySelector('header>ul');
+        // $img의 리턴을 확인해 볼 것
+        // setInterval 작동 에러
+        const $img = document.querySelector('.visual>div');
+        console.log($img);
+        console.log($top); console.log($bottom);
+
+        $top.addEventListener('mouseover',function(e){
+            e.target.children[0].classList.remove('hidden');
+            
+        });
+        $top.addEventListener('mouseout',function(e){
+            e.target.children[0].classList.add('hidden');
+        });
+
+        let index = 0;
+        setInterval(() => {
+            if(index < $img.length-1){
+                $img[index].style.marginTop = "-350px";
+                index += 1;
+        } else {
+            for(let i = 0; i <$img.length; i++){
+                $img[i].style.marginTop = "0px";
+                index = 0;
+            }
+        }
+        }, 2000);
+
+    </script>
+</body>
+</html>

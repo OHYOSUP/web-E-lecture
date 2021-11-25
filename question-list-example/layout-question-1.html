@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #container {
+      width: 1000px;
+      height: 650px;
+      background-color: aliceblue;
+      margin: 0 auto;
+    }
+
+    #popup {
+      width: 25vw;
+      height: 25vw;
+      border: 1px solid black;
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      transform: translate(-50%);
+      background-color: white;
+    }
+
+    #popup button {
+      padding: 10px;
+      float: right;
+    }
+
+    #container nav {
+      width: 200px;
+      height: 100%;
+      border: 1px solid black;
+      float: left;
+    }
+
+    #container nav #logo {
+      width: 100%;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    #container nav #nav-menu {
+      width: 100%;
+      height: 550px;
+      border: 1px solid black;
+    }
+
+    #container nav #nav-menu>ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #container nav #nav-menu ul>li {
+      width: 180px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 1px solid rgb(153, 142, 142);
+    }
+
+    #container nav #nav-menu ul li ul li {
+      border: none;
+    }
+
+    #container nav #nav-menu ul li ul li:nth-child(1) {
+      margin-top: 20px;
+    }
+
+
+    #container main {
+      width: 800px;
+      height: 100%;
+      border: 1px solid black;
+      float: left;
+    }
+
+    #container main #main-img {
+      width: 100%;
+      height: 350px;
+      border: 1px solid black;
+    }
+
+    #container main #main-m {
+      width: 100%;
+      height: 200px;
+      border: 1px solid black;
+    }
+
+    #container main #main-m div {
+      width: 33.333%;
+      height: 100%;
+      border: 1px solid black;
+      float: left;
+    }
+
+    #container main #main-m #main-m1>a {
+      width: 60px;
+      height: 40px;
+      padding: 10px;
+      line-height: 40px;
+      border: 1px solid black;
+    }
+
+    #container main #main-m #main-m1>div {
+      width: 100%;
+      height: 160px;
+      border: 1px solid black;
+      padding-left: 10px;
+    }
+
+    #container main #main-m #main-m1>div a {
+      line-height: 30px;
+    }
+
+    #container main #main-m #main-m2>a {
+      width: 60px;
+      height: 40px;
+      padding: 10px;
+      line-height: 40px;
+      border: 1px solid black;
+    }
+
+    #container main #main-m #main-m2 #g-img {
+      width: 100%;
+      height: 160px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #container main #main-m #main-m2 #g-img div {
+      width: 80px;
+      height: 80px;
+      border: 1px solid black;
+    }
+
+    #container main #main-b {
+      width: 100%;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    #container main #main-b div:nth-child(1) {
+      width: 80%;
+      height: 100%;
+      border: 1px solid black;
+      float: left;
+    }
+
+
+    #container main #main-b #main-b-r {
+      width: 20%;
+      height: 100%;
+      border: 1px solid black;
+      float: left;
+    }
+
+    #container main #main-b #main-b-r div {
+      width: 100%;
+      height: 50%;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="popup" class="hidden">
+    <h1>타이틀</h1>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio voluptate, recusandae est architecto velit a odio
+      facere adipisci quaerat quia, corporis doloremque cupiditate reprehenderit expedita, enim ipsa aperiam ratione
+      deleniti unde sit ea ad sint neque? Commodi, fugiat enim quidem earum architecto maxime a, perferendis velit
+      beatae, nulla eligendi aspernatur?</p>
+    <button>X</button>
+
+  </div>
+  <div id="container">
+
+    <nav>
+      <div id="logo">logo</div>
+      <div id="nav-menu">
+        <ul id="main-menu">
+          <li>MENU-1
+            <ul class="sub-menu hidden">
+              <li>SubMenu-1</li>
+              <li>SubMenu-2</li>
+              <li>SubMenu-3</li>
+              <li>SubMenu-4</li>
+            </ul>
+          </li>
+          <li>MENU-2
+            <ul class="sub-menu hidden">
+              <li>SubMenu-1</li>
+              <li>SubMenu-2</li>
+              <li>SubMenu-3</li>
+              <li>SubMenu-4</li>
+            </ul>
+          </li>
+          <li>MENU-3
+            <ul class="sub-menu hidden">
+              <li>SubMenu-1</li>
+              <li>SubMenu-2</li>
+              <li>SubMenu-3</li>
+              <li>SubMenu-4</li>
+            </ul>
+          </li>
+          <li>MENU-4
+            <ul class="sub-menu hidden">
+              <li>SubMenu-1</li>
+              <li>SubMenu-2</li>
+              <li>SubMenu-3</li>
+              <li>SubMenu-4</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div id="main-img"></div>
+      <div id="main-m">
+        <div id="main-m1">
+          <a href="#">공지사항</a>
+          <div>
+            <a href="#" id="modal">
+              <p>공지사항~~~~~~~~~~~~~1</p>
+            </a>
+            <a href="#">
+              <p>공지사항~~~~~~~~~~~~~2</p>
+            </a>
+            <a href="#">
+              <p>공지사항~~~~~~~~~~~~~3</p>
+            </a>
+            <a href="#">
+              <p>공지사항~~~~~~~~~~~~~4</p>
+            </a>
+            <a href="#">
+              <p>공지사항~~~~~~~~~~~~~5</p>
+            </a>
+          </div>
+        </div>
+        <div id="main-m2">
+          <a href="#">갤러리</a>
+          <div id="g-img">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div id="main-b">
+        <div></div>
+        <div id="main-b-r">
+          <div>SNS</div>
+          <div>패밀리 사이트</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+
+    const $mainMenu = document.querySelector('#main-menu');
+    const $mainMenuli = document.querySelector('#main-menu li')
+    const $subMenu = document.getElementsByClassName('sub-menu');
+    const modal = document.querySelector('#modal');
+    const popup = document.querySelector('#popup');
+    const btn = document.querySelector('button');
+
+    //  팝업창
+    modal.addEventListener('click', function () {
+      popup.classList.remove('hidden');
+    });
+
+    btn.addEventListener('click', function () {
+      popup.classList.add('hidden');
+    })
+
+
+    //  메뉴 토글 동작 잘됨
+    //  console.log($mainMenu);
+
+    //  $mainMenu.addEventListener('click', function(e){
+    //   console.log(e.target);
+
+    //   console.log(e.target.children);                   //
+    //   e.target.children[0].classList.toggle('hidden');
+    //  });
+
+    //  const $subMenu = document.getElementsByClassName('sub-menu');
+
+    //  console.log($mainMenu.children.length);
+    //  console.log($mainMenu.children[0]);
+    //  console.log($subMenu);
+
+    //  $mainMenu.addEventListener('mouseleave', function(){
+    //    for(let i = 0; i< $subMenu.length; i++) {
+    //      $subMenu[i].classList.add('hidden');
+    //    }
+    //  });
+
+    // -------------------메뉴 마우스오버
+    console.log($mainMenu);
+
+
+    $mainMenu.addEventListener('mouseover', function (e) {
+      console.log(e.target);
+
+      console.log(e.target.children);
+      e.target.children[0].classList.remove('hidden');
+    });
+
+
+    $mainMenuli.addEventListener('mouseleave', function (e) {  // 메뉴1에서 2로 넘어갈때는 메뉴1이 잘없어지는데 메뉴 2,3,4가 안없어집니다.;  제 생각에는 왼쪽에 $mainMenuli 이게 아니고 지금 마우스오버 돼있는 mainmenuli만 선택하면 될거같은데 잘안됩니다.
+      console.log(e.target.children[0]);
+    });
+
+
+
+    console.log($mainMenu.children.length);
+    console.log($mainMenu.children[0]);
+    console.log($subMenu);
+
+    $mainMenu.addEventListener('mouseleave', function () {
+      for (let i = 0; i < $subMenu.length; i++) {
+        $subMenu[i].classList.add('hidden');
+      }
+    });
+
+  </script>
+</body>
+
+</html>

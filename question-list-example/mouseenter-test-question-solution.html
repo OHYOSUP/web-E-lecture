@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알고리즘 연습2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    #container-1 {
+      width: 100vw;
+      height: 10vh;
+      background-color: lavender;
+    }
+
+    #container-1 ul {
+      width: 60vw;
+      margin: 0 auto;
+    }
+
+    #container-1 li {
+      width: 10vw;
+      line-height: 10vh;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    #container-2 {
+      width: 100vw;
+      height: 30vh;
+      background-color: plum;
+    }
+
+    #container-2 ul {
+      width: 60vw;
+      margin: 0 auto;
+    }
+
+    #container-2 li {
+      line-height: 5vh;
+    }
+
+    .flex-sa {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 각각의 콘테이너가 있음 -->
+  <div id="container-1">
+    <ul id="mainMenu" class="flex-sa">
+      <li class="menu-sect-1">메인메뉴-1</li>
+      <li class="menu-sect-2">메인메뉴-2</li>
+      <li class="menu-sect-3">메인메뉴-3</li>
+      <li class="menu-sect-4">메인메뉴-4</li>
+      <li class="menu-sect-5">메인메뉴-5</li>
+    </ul>
+  </div>
+
+  <div id="container-2">
+    <ul class="flex-sa hidden">
+      <li class="menu-sect-1">메뉴-1 서브</li>
+      <li class="menu-sect-1">메뉴-1 서브</li>
+      <li class="menu-sect-1">메뉴-1 서브</li>
+      <li class="menu-sect-1">메뉴-1 서브</li>
+      <li class="menu-sect-1">메뉴-1 서브</li>
+    </ul>
+    <ul class="flex-sa hidden">
+      <li class="menu-sect-2">메뉴-2 서브</li>
+      <li class="menu-sect-2">메뉴-2 서브</li>
+      <li class="menu-sect-2">메뉴-2 서브</li>
+      <li class="menu-sect-2">메뉴-2 서브</li>
+      <li class="menu-sect-2">메뉴-2 서브</li>
+    </ul>
+    <ul class="flex-sa hidden">
+      <li class="menu-sect-3">메뉴-3 서브</li>
+      <li class="menu-sect-3">메뉴-3 서브</li>
+      <li class="menu-sect-3">메뉴-3 서브</li>
+      <li class="menu-sect-3">메뉴-3 서브</li>
+      <li class="menu-sect-3">메뉴-3 서브</li>
+    </ul>
+    <ul class="flex-sa hidden">
+      <li class="menu-sect-4">메인-4 서브</li>
+      <li class="menu-sect-4">메인-4 서브</li>
+      <li class="menu-sect-4">메인-4 서브</li>
+      <li class="menu-sect-4">메인-4 서브</li>
+      <li class="menu-sect-4">메인-4 서브</li>
+    </ul>
+    <ul class="flex-sa hidden">
+      <li class="menu-sect-5">메인-5 서브</li>
+      <li class="menu-sect-5">메인-5 서브</li>
+      <li class="menu-sect-5">메인-5 서브</li>
+      <li class="menu-sect-5">메인-5 서브</li>
+      <li class="menu-sect-5">메인-5 서브</li>
+    </ul>
+  </div>
+
+  <script>
+    // 사람 말 알고리즘
+    // 메인메뉴 ( container-1의 li )를 마우스 오버 or 마우스 엔터 하면
+    // 서브메뉴 ( container-2의 ul들 )이 .hidden 이라는 class가 삭제되었다가
+    // 마우스를 떼면 class가 다시 입혀져라..
+
+    // 그니까 메인메뉴 1에 마우스를 올리면 메인-1 서브들이 뜨고 메인2는 서브2가 뜨고 그렇게 뜨려면?
+    // 자식관계가 아닌 서로 다른 콘테이너 일 경우...배열과 이벤트 알고리즘 연습
+
+    // for문을 써야 하나....? queryselectorAll로 배열을 쓰나?
+
+
+    // const mainMenu = document.querySelectorAll('#mainMenu');
+    // const subMenu = document.querySelectorAll('#container-2');
+
+    // console.log(mainMenu);
+    // console.dir(mainMenu);
+    // console.log(subMenu);
+    // console.dir(subMenu);
+
+    // mainMenu.addEventListener('mouseover', (e)=>{
+    //   // console.log(e.target);
+    //   for(let i=0; i<mainMenu.lenght; i++){
+    //   e.target.chidren[0].classList.toggle('hidden');
+    //   }
+    // });
+
+    // mainMenu.addEventListener('mouseover', function(e) {
+    //   for(let i = 0; i < subMenu.length; i++) {
+    //     subMenu[i].classList.remove('hidden');
+    //   }
+    // });
+    // mainMenu.addEventListener('mouseleave', function(e) {
+    //   for(let i = 0; i < subMenu.length; i++) {
+    //     subMenu[i].classList.add('hidden');
+    //   }
+    // });
+
+  //   const mainMenu = document.querySelector('#mainMenu');
+  //   const subMenu = document.querySelector('#container-2');
+
+  //   console.log(mainMenu.children.length);
+  //   console.log(mainMenu.children[0]);
+  //   console.log(subMenu);
+
+  //   mainMenu.addEventListener('mouseleave', function() {
+  //   for(let i = 0; i < subMenu.length; i++) {
+  //     subMenu.children[i].classList.add('hidden');
+  //   }
+  // });
+  // mainMenu.addEventListener('mouseover', function() {
+  //   for(let i = 0; i < subMenu.length; i++) {
+  //     subMenu.children[i].classList.remove('hidden');
+  //   }
+  // });
+
+  // ... ^^ 
+  // 잘 모르겠네요........뭔가 이런 식으로 하면 되지않을까? 생각이 들어서 해보면 안되고.. 
+  // 어떻게 알고리즘을 짜야하는지 정확하게 모르겠습니다
+
+  // for문을 써야할 것 같다. 이건 if문을 써야할 것 같다 정도 생각은 나는데
+  // 알고리즘을 짜려고하면 잘 안됩니다..... 위에꺼 어떻게 해결하는지 알고싶어요..................
+  // 뭔가 배열과 배열을 어떻게하려고하니까 어렵게 느껴지는건지 도와주세요!
+
+  </script>
+</body>
+
+</html>

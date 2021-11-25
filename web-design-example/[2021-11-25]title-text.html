@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1></h1>
+  <p>텍스트노드 부분을 -> 자바스크립트로 제어한다. textContent, innerHTML, innerText </p>
+  <p>텍스트노드에 접근 -> 제어</p>
+  <p>"텍스트를 강조할때" </p>
+  <h2>심플하면서 화려하게가 가능해진다.</h2>
+
+
+  <script>
+    const hOne = document.querySelector('h1');
+
+    console.dir(hOne);
+    console.log(hOne);
+
+    const arr = ['나는', '날개달린', '재순이다.'];
+
+    // 간격마다 무엇좀 해주세요. 메서드를 구할 줄 아는 것
+    let index = 0;
+    setInterval(function(){
+      if(index < arr.length) {
+        hOne.innerHTML = arr[index];
+        index += 1;
+      } else {
+        index = 0;
+      }
+    }, 2000);
+
+
+
+    hOne.innerHTML= arr[0];
+
+  </script>
+</body>
+</html>

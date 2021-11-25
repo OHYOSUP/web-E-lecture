@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slide-example</title>
+  <style>
+    #container {
+      width: 100vw;
+      height: 100vh;
+      /* flex */
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* ul 부모 div 사이징 */
+    #slide {
+      width: 50vw;
+      height: 50vh;
+      background-color: #fd0;
+      position: relative;
+      
+      /* point */
+      overflow: hidden;
+    }
+/* ul tag selector */
+    #slide ul {
+      list-style-type: none;
+      padding:0;
+      margin: 0;
+      position: absolute;
+
+      
+
+     
+    }
+/* li tag selector */
+    #slide ul li {
+      width: 50vw;
+      height: 50vh;
+      background-color: darkgray;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <div id="container">
+    <div id="slide">
+      <ul>
+        <li><a href="#">slide-image-1</a></li>
+        <li><a href="#">slide-image-2</a></li>
+        <li><a href="#">slide-image-3</a></li>
+        <li><a href="#">slide-image-4</a></li>
+        <li><a href="#">slide-image-5</a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+
+    // identifier
+    const $slide = document.querySelector('#slide > ul');
+    const $liItems = document.querySelectorAll('#slide > ul > li');
+    console.dir($slide);
+    console.log($slide.children[0].clientHeight);
+    const $slideHeightValue = $slide.children[0].clientHeight;
+    console.log(`li tag height value : ${$slideHeightValue}`);
+    console.log(`list lenght :  ${$liItems.length}`);
+    
+    
+    // init 
+    let index = 0;
+    let heightValue = $slideHeightValue;
+    // slide function
+    setInterval(function() {
+      slide();
+    }, 3000);
+
+
+      // function statement 
+    function slide() {
+      if(index < $liItems.length) {
+        console.log(index);
+        $slide.animate({
+          top: - (heightValue * index) + "px"
+        },
+        {
+          duration: 1000,
+          fill:"forwards"
+        })
+        index += 1;
+      } else {
+        $slide.animate({
+          top:"0px"
+        },
+        {
+          duration: 1000,
+          fill:"forwards"
+        })
+        index = 0;
+      }
+    };
+  </script>
+</body>
+</html>

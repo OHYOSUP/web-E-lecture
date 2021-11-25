@@ -21,7 +21,7 @@ window.addEventListener('load', function () {
 
   // title design
   let textIndex = 0;
-  let time = 3000;
+  let time = 1000;
   let opacityValue = 0;
   let blurValue = 1;
   const textTimer = this.setInterval(function () {

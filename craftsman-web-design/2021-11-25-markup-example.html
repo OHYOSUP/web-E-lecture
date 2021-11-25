@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+ * { padding: 0; margin: 0; box-sizing: border-box;}
+
+    #container {
+      width: 1000px;
+      height: 650px;
+      background-color: #ccc;
+    }
+
+    /* nav *************************************** */
+    #container nav {
+      width: 300px;
+      height: inherit;
+      background-color: #ddd;
+      float: left;
+    } 
+
+    #logo {
+      height: 100px;
+      background-color: lawngreen;
+    }
+
+    #menu {
+      height: 550px;
+      background-color: lightpink;
+    }
+
+    #menu ul {
+      list-style-type: none;
+      width: 80%;
+      margin-left: 20%;
+    }
+
+
+    /* nav *************************************** */
+
+    
+
+    #container main {
+    
+      width: 700px;
+      height: inherit;
+      background-color: #555;
+      float: left;
+    
+    }
+    #container main section:nth-child(1) {
+      height: 350px;
+      background-color: lightslategrey;
+    }
+    #container main section:nth-child(2) {
+      height: 200px;
+      background-color: mediumorchid;
+    }
+    #container main section:nth-child(3) {
+      height: 100px;
+      background-color: palegoldenrod;
+    }
+
+    /* 두번째 섹션 */
+    #container main section:nth-child(2) div {
+      width: 33%;
+      height: 100%;
+      float: left;
+    }
+    #container main section:nth-child(2) div:nth-child(1) {
+      background-color: papayawhip;
+    }
+    #container main section:nth-child(2) div:nth-child(2) {
+      background-color: plum;
+    }
+    #container main section:nth-child(2) div:nth-child(3) {
+      background-color: seagreen;
+    }
+
+    /* 마지막섹션 */
+
+    #container main section:nth-child(3) > div {
+      float: left;
+    }
+
+    #copyright {
+      background-color: cadetblue;
+      width:70%;
+      height:100%;
+    }
+
+    #footer-set {
+      width:30%;
+      height: 100%;
+      background-color: #ddd;
+    }
+
+    #footer-set div {
+      height: 50%;
+    }
+
+    /* class handle */
+
+    .hidden {
+      display: none;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <div id="container">
+    <nav>
+      <div id="logo">logo</div>
+      <div id="menu">
+        <ul>
+          <li>main-menu-1
+            <ul class="hidden">
+              <li>sub-menu-1</li>
+              <li>sub-menu-2</li>
+              <li>sub-menu-3</li>
+              <li>sub-menu-4</li>
+            </ul>
+          </li>
+          <li>main-menu-2
+            <ul class="hidden">
+              <li>sub-menu-1</li>
+              <li>sub-menu-2</li>
+              <li>sub-menu-3</li>
+              <li>sub-menu-4</li>
+            </ul>
+          </li>
+          <li>main-menu-3
+            <ul class="hidden">
+              <li>sub-menu-1</li>
+              <li>sub-menu-2</li>
+              <li>sub-menu-3</li>
+              <li>sub-menu-4</li>
+            </ul>
+          </li>
+          <li>main-menu-4
+            <ul class="hidden">
+              <li>sub-menu-1</li>
+              <li>sub-menu-2</li>
+              <li>sub-menu-3</li>
+              <li>sub-menu-4</li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+    </nav>
+    <main>
+      <section>
+        <p>image-1</p>
+        <p>image-2</p>
+        <p>image-3</p> 
+      </section>
+      <section>
+        <div>공지사항</div>
+        <div>갤러리</div>
+        <div>바로가기</div>
+      </section>
+      <section>
+        <div id = "copyright">copyright</div>
+        <div id ="footer-set">
+          <div>SNS</div>
+          <div>familysite</div>
+        </div>
+      </section>
+
+    </main>
+
+
+  </div>
+
+  <script>
+
+    const mainMenu = document.querySelector('#menu');
+    console.log(mainMenu);
+    mainMenu.addEventListener('click', function(event) {
+      console.log(event.target);
+      event.target.children[0].classList.toggle('hidden');
+    });
+
+
+  </script>
+
+</body>
+</html>

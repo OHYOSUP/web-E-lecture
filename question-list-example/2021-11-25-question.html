@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* 초기화 */
+        *
+        {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul,li{
+            list-style: none;
+        }
+
+        /* 전체 */
+
+        #container
+        {
+            width: 1000px;
+            height: 650px;
+            border: 1px solid #000;
+        }
+
+
+        /* 헤더 */
+
+
+        #container>header{
+            width: 20%;
+            height: 100%;
+            background-color: lightgray;
+            float: left;
+        }
+        
+        #container>header>.logo{
+          width: 200px;
+          height: 40px;
+          background-color: lightpink;
+        }
+        #container>header>.top>li{
+          width: 100px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          background-color: lightyellow;
+          
+        }
+        #container>header>.top>li>ul{
+            display: none;
+        }
+        #container>header>.top>li>ul>li{
+          width: 100px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          background-color: lightskyblue;
+          float: left;
+        }
+        /* visual */
+        .visual{
+            width: 80%;
+            height: 350px;
+            background-color: lightskyblue;
+            float: right;
+            position: relative;
+        }
+        .visual>.img{
+            width: 70%;
+            height: 80%;
+            background-color: palegoldenrod;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .visual>.img:nth-child(1){
+            background-color: lightcoral;
+        }
+        .visual>.img:nth-child(2){
+            background-color: lightgreen;
+        }
+        .visual>.img:nth-child(3){
+            background-color: lightseagreen;
+        }
+        /* nav */
+        nav{
+            width: 80%;
+            height: 200px;
+            float: right;
+            background-color: lightsteelblue;
+        }
+        /* footer */
+        footer{
+            width: 80%;
+            height: 100px;
+            background-color: palegoldenrod;
+            float: right;
+        }
+     
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    <header>
+            <div class="logo"></div>
+            <ul class="top">
+                <li>축제소개
+                        <ul class="bottom">
+                            <li>초대의 글</li>
+                            <li>축제개요 </li>
+                            <li>축제연혁</li>
+                            <li>오시는길</li>
+                        </ul>
+                </li>
+                <li>행사안내
+                    <ul class="bottom">
+                        <li>셔틀버스안내</li>
+                        <li>행사안내</li>
+                        <li>행사일정</li>
+                        <li>소공연장</li>
+                    </ul>
+                </li>
+                <li>홍보마당
+                    <ul class="bottom">
+                        <li>축제소식</li>
+                        <li>보도자료 </li>
+                        <li>음식레시피</li>
+                    </ul>
+                </li>
+                <li>참여마당
+                    <ul class="bottom">
+                        <li>참가후기</li>
+                        <li>연꽃갤러리 </li>
+                        <li>포토갤러리</li>
+                    </ul>
+                </li>
+            </ul>
+    </header>
+
+    <div class="visual">
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+    </div>
+
+    <nav> 
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </nav>
+
+   <footer>
+        <div class="copy"></div>
+        <div class="sns"></div>
+        <div class="family"></div>
+   </footer>
+         
+    </div>
+
+    <script>
+
+        const $bottom = document.querySelectorAll('header>ul>li>ul');
+        const $top = document.querySelector('header>ul');
+        console.log($top); console.log($bottom);
+
+        $top.addEventListener('mouseover',function(e){
+            e.target.children[0,1,2,3];
+            for(let i= 0; i<$bottom.length;i++){
+                $bottom[i].style.display = 'block';
+            }
+        });
+        $top.addEventListener('mouseout',function(e){
+            e.target.children[0,1,2,3];
+            for(let i= 0; i<$bottom.length;i++){
+                $bottom[i].style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

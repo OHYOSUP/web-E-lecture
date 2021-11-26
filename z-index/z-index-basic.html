@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+ * { padding: 0; margin: 0; box-sizing: border-box;}
+
+    #wrap {
+      width: 100vw;
+      height: 100vh;
+      background-color: darkcyan;
+      /* display:flex */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* position */
+      position: relative;
+      /* 자식 엘리먼트가 엡솔루트로 포지셔닝 할 수 있도록 부모 엘리먼트에게 의도적으로 포지션값을 디폴드값이 안되도록 바꿈 */
+    }
+
+    #wrap section {
+      width: 24vw;
+      height: 24vw;
+      /* position  */
+      position:absolute;
+      /* 부모(relative), 자식(absolute)로 셋팅한 순간 4개의 section 자식 엘리먼트들은 모두 겹쳐짐 */
+    }
+    #wrap section:nth-child(1){background-color: darkgray;}
+    #wrap section:nth-child(2){background-color: blue; }
+    #wrap section:nth-child(3){background-color: darkturquoise;}
+    #wrap section:nth-child(4){background-color: salmon;}
+
+/*  ******************** 여기까지가 기본 셋팅 ****** 아래부터 구체적인 포지셔닝 */
+    /* margin 으로 포지션 설정  */
+    #wrap section:nth-child(1){margin: 300px -200px -10px -100px;}
+    #wrap section:nth-child(2){margin: 200px 300px 30px 200px;}
+    #wrap section:nth-child(3){margin: 0px 0px 0px 0px;}
+    #wrap section:nth-child(4){margin: 300px 400px 50px 200px;}
+    /* 임의의 opacity 설정 */
+    #wrap section:nth-child(1){opacity:0.5;}
+    #wrap section:nth-child(2){opacity:0.7;}
+    #wrap section:nth-child(3){opacity:1;}
+    #wrap section:nth-child(4){opacity:0.6;}
+    /* z-index 설정 */
+    #wrap section:nth-child(1){z-index:2;}
+    #wrap section:nth-child(2){z-index:3;}
+    #wrap section:nth-child(3){z-index:0;}   
+    #wrap section:nth-child(4){z-index:1;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <section></section>
+    <section></section>
+    <section>요놈이 주인공</section>
+    <section></section>
+  </div>
+  <script>
+    const mainElem = document.querySelectorAll('#wrap > section');
+    // 배열로 선택자를 받음
+    console.log(mainElem);
+
+    // 이벤트 중 주인공을 배열 인덱스 값에서 하나 짚음
+    let zIndexValue = 0;
+    mainElem[2].addEventListener('click', function() {
+      if(zIndexValue < mainElem.length) {
+        console.dir(mainElem[2].style);
+        // zIndexValue = zIndexValue + 1;
+        // zIndexValue += 1;
+        zIndexValue++;
+        mainElem[2].style.zIndex = zIndexValue;
+      } else {
+        zIndexValue = 0;
+      } 
+    });
+    // 해당 함수는 3번째 엘리먼트에만 반응하는 문제를 가지고 있음
+    // 해결 방법은 무엇일까?
+
+  </script>
+</body>
+</html>

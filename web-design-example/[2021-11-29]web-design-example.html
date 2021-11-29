@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2021-11-29 web-design-example</title>
+  <style>
+
+  * {margin: 0;padding: 0; box-sizing: border-box;}
+
+  body {
+    overflow-x: hidden;
+  }
+
+
+  #container {
+    position: relative;
+  }
+
+    #container section {
+      /* sizing */
+      width:100vw;
+      height: 100vh;
+      /* flex attribute */
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    #container section:nth-child(1) {
+      /* image */
+      background-image: url(./2021-11-29-image-1.jpg);
+      background-size: cover;
+    }
+    #container section:nth-child(1) h1 {
+      /* font styling */
+      font-size: 5rem;
+      color:antiquewhite;
+      /* positioning */
+      position: absolute;
+      margin-top: 25vw;
+      margin-right: 6vw;
+    }
+
+    #container section:nth-child(1) p {
+      /* font styling */
+      font-size: 1rem;
+      color:antiquewhite;
+      /* positioning */
+      width: 70vw;
+      
+      text-align: right;
+      position: absolute;
+      margin-top: 40vw;
+      margin-right: 6vw;
+
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <section>
+      <h1>hello, wall</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas provident ipsum natus. Aperiam quam a tempora dolorum natus consequuntur quos et rem, doloribus harum nesciunt recusandae modi repellat eaque nostrum quis explicabo quod? Nulla totam dolore error libero obcaecati? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quis commodi in velit ut deserunt laborum corrupti nostrum ea itaque, possimus impedit repudiandae! Quisquam cumque labore tempora repellat ipsum quia.
+
+
+      </p>
+
+
+
+    </section>
+
+
+  </div>
+
+    <script>
+
+      window.addEventListener('DOMContentLoaded', function() {
+
+        // tag initial
+        const sectionTitle = document.querySelector('#container section h1');
+        const sectionParagraph = document.querySelector('#container section p');
+        // inspect
+        console.log(sectionParagraph);
+        console.log(sectionTitle);
+        // styling
+        sectionTitle.style.opacity = 0;
+        sectionParagraph.style.opacity = 0;
+
+
+        console.dir(window);
+        // 아래의 if 문은 CSS에서 @media <-- 의 알고리즘 기본형
+        if(window.innerWidth < 1000) {
+          sectionTitle.textContent = "wow responsive text!"; 
+        }
+
+        // browser가 load되었을때 -> 메인타이틀, 메인본문 fadeIn
+        let opacityValue = 0;
+        window.addEventListener('load', function() {
+          // 아래의 and 조건식은 현 작업에서는 굳이 필요없지만 버릇들이면 좋은 절차적 사고
+          if(sectionTitle.style.opacity < 1 && sectionParagraph.style.opacity < 1) {
+            const timer = setInterval(function() {
+              sectionTitle.style.opacity = opacityValue;
+              sectionParagraph.style.opacity = opacityValue;
+              opacityValue += 0.1;
+             }, 40);
+            } else {
+              clearInterval(timer);
+            } 
+        });
+        // window load -------------------------------------------
+      });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for of()문과 for in()문의 차이</title>
+</head>
+<body>
+  <h1>for of()문과 for in()문의 차이</h1>
+  <hr>
+  <script>
+
+    const list = [4, 5, 6];
+    // for in문은 키의 목록을 반환한다.
+    // 배열에서의 키는 index를 뜻한다.
+    for(const i in list) {
+      console.log(i);
+    }
+
+    // for of문은 키 안에 있는 값들을 반환한다.
+    for(const j of list) {
+      console.log(j);
+    }
+
+    // 필요에 따라서는 for() loop를 대신해 배열 메서드인 forEach 메서드를 활용할 수도 있다.
+    // forEach의 첫번째 인자로 들어오는 콜백함수의 매개변수 두가지를 확인할 것(이것은 이미 정해져있다.)
+
+    list.forEach((value, index)=> {
+      console.log(`forEach : ${index} 번째 값의 내용은 : ${value}`);
+    });
+
+  </script>
+</body>
+</html>

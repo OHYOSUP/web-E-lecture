@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+ * {
+   padding:0; margin:0; box-sizing: border-box;
+ }
+
+  </style>
+</head>
+<body>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // markup
+      const containerElement = document.createElement('div');
+      containerElement.setAttribute('id', 'container');
+      // appendChild node
+      document.body.appendChild(containerElement);
+      const sectionElement = document.createElement('section');
+      sectionElement.setAttribute('id', 'items');
+      sectionElement.textContent = 'section hello';
+      // styling
+      sectionElement.style.height = 400 + "vh";
+      sectionElement.style.backgroundColor = `rgba(200, 200, 200)`;
+      // appendChild node
+      containerElement.appendChild(sectionElement);
+      console.log('hello');
+      
+      window.addEventListener('scroll', ()=> {
+        console.log(window.scrollY);
+      });
+
+    });
+
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>

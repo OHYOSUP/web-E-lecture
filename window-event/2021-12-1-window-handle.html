@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+
+      display: flex;
+    }
+
+    /* ************************************* */
+
+    #dots {
+      position: fixed;
+      right: 2vw;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
+    #dots ul {
+      list-style-type: none;
+    }
+
+    #dots ul li {
+      width: 2vw;
+      height: 2vw;
+      border-radius: 1vw;
+      margin-top: 1vw;
+      background-color: #fff;
+    }
+
+
+    #container section {
+      width: 100vw;
+      height: 100vh;
+      background-color: darkkhaki;
+    }
+
+    #container section {
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    #container section:nth-child(2n) {
+      background-color: lightseagreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav id="dots">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </nav>
+
+  <div id="container">
+    <section>
+      <h1>hello</h1>
+    </section>
+    <section></section>
+    <section></section>
+    <section></section>
+  </div>
+
+  <script>
+
+    const sections = document.querySelectorAll('#container > section');
+    const dots = document.querySelectorAll('#dots ul li');
+
+    // body에 구성된 높이값 구하기
+    const bodyTotalHeight = document.body.offsetHeight;
+    // 화면상에 보이는 높이값 구하기
+    const windowInnerHeight = window.innerHeight;
+    // 100vh -> px 환산 : sectionHeight
+    const sectionHeight = document.querySelector('#container > section').clientHeight;
+
+    console.log(sections);
+
+    dots[2].addEventListener('click', () => {
+      window.scroll({
+        top: sections[2].offsetTop,
+        behavior: "smooth"
+      });
+    });
+
+  </script>
+</body>
+
+</html>

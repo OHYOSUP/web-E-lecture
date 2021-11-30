@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0 auto;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #slide div {
+      width: 10vw;
+      height: 20vh;
+      position: absolute;
+      transition: opacity 0.5s ease-in;
+      color: gray;
+      font-size: 2rem;
+    }
+
+    .image:nth-child(1) {
+      background-color: red;
+    }
+
+    .image:nth-child(2) {
+      background-color: blue;
+    }
+
+    .image:nth-child(3) {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="slide">
+    <div class="image">1</div>
+    <div class="image">2</div>
+    <div class="image">3</div>
+  </div>
+  <script>
+    var current = 0;
+    const slideTage = document.querySelectorAll('.image');
+    console.log(slideTage);
+
+    setInterval(function () {
+      for (let i = 0; i < slideTage.length; i++) {
+        slideTage[i].style.opacity = 0;
+      }
+      current = (current != slideTage.length - 1) ? current + 1 : 0;
+      // 물음표 연산자 평가대상인 current가 true라면 current에 1을 더해줘 아니라면 0으로 돌아가줘
+      // 왜 3번 이미지부터 시작하고 2번 갔다가 3번 갔다가 2->1순으로 반복하는걸까
+      slideTage[current].style.opacity = 1;
+    }, 3000);
+
+  </script>
+</body>
+
+</html>

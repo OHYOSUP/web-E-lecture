@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>data-attribute introduce</title>
+  <style>
+
+    #container section {
+      width: 100vw;
+      height: 100px;
+    }
+
+
+    nav ul {
+      list-style-type: none;
+    }
+
+    nav ul li {
+      font-size: 3rem;
+    }
+
+
+    #container section:nth-child(1){background-color: darkgoldenrod;}
+    #container section:nth-child(2){background-color: bisque;}
+    #container section:nth-child(3){background-color: teal;}
+    #container section:nth-child(4){background-color:  blueviolet;}
+
+
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li data-index="1">1</li>
+      <li data-index="2">2</li>
+      <li data-index="3">3</li>
+      <li data-index="4">4</li>
+    </ul>
+  </nav>
+
+
+
+  <div id="container">
+    <section data-index="1">1</section>
+    <section data-index="2">2</section>
+    <section data-index="3">3</section>
+    <section data-index="4">4</section>
+  </div>
+
+  <script>
+
+    const sect = document.querySelector('#container');
+    const liItems = document.querySelectorAll('nav > ul > li');
+
+    for(let idx = 0; idx < liItems.length; idx++) {
+      liItems[idx].style.visibility = "hidden";
+      console.log(` li data-attribute : ${liItems[idx].dataset.index}`);
+    }
+
+
+    sect.addEventListener('click', (event) => {
+      let getData = event.target.dataset.index;
+      try {
+
+        for(let i = 0; i < liItems.length; i++) {
+          if(liItems[i].dataset.index === getData) {
+            liItems[i].style.visibility = "visible";
+            liItems[i].animate([
+              {color:"red"},
+              {color:"blue"}
+            ],{
+              duration:1000
+            });
+          } else {
+            liItems[i].style.visibility = "hidden";
+          }
+        }
+        // console.log(liItems.dataset.index);
+      } catch {
+        console.log('error');
+      }
+    });
+
+
+
+
+  </script>
+
+
+</body>
+</html>

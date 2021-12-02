@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>hello</h1>
+
+
+  <script>
+    const h1 = document.querySelector('h1');
+    console.log(h1);
+    const h1TextNode = h1.textContent;
+    console.log(h1TextNode);
+
+    // h1 태그의 텍스트 노드 hello는 문자열이라는 데이터 타입과 순서값(index), 길이값(length)를 갖는다.
+    for (let index = 0; index < h1TextNode.length; index++) {
+      const element = h1TextNode[index];
+      console.log(element);
+    }
+    // 하지만 배열로 판정하지 않기 때문에 '유사 배열' 이라고 부른다.
+    // 배열 전용 메서드는 사용할 수 없다.
+    // 콘솔 디버깅할때 자주 볼 수 있는 NodeList, HTMLCollection 이라는 것이 사실은 '유사배열객체' 이다.
+
+    // *********** 새로운 문법 : 확산 연산자 ...변수 **************
+    // 유사배열을 -> 배열로 바꾸었다.
+    const h1TextArray = [...h1TextNode];
+    // console 확인
+    console.log(h1TextArray);
+
+    // 아래의 행으로 h1태그의 텍스트노드 값을 비웠다.
+    // 마치 문자열 변수 선언한 것과 비슷한 디자인 패턴
+    h1.textContent = "";
+
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < h1TextArray.length) {
+        // timer 는 정해진 시간마다 span 태그를 만들고 -> 그 속 텍스트노드에 배열 값에 만들어주었다.
+        const spanElement = document.createElement('span');
+        spanElement.textContent = h1TextArray[index];
+        // 아래의 행을 통해 h1 태그 자식으로 span 태그를 동적으로 만들어 넣어주고 있다.
+        h1.appendChild(spanElement);
+        index++;
+      } else {
+        console.log('done');
+        clearInterval(timer);
+        // 동적으로 만든 span 형제요소들을 다시 식별했다.
+        const dynamicChildNode = document.querySelectorAll('h1 > span');
+        console.log(dynamicChildNode);
+        for (let i = 0; i < dynamicChildNode.length; i++) {
+          dynamicChildNode[i].style.color = 'blue';
+        }
+      }
+    }, 1000);
+
+
+
+
+  </script>
+</body>
+
+</html>

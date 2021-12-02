@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>display-vs-visibility</title>
+  <style>
+    *{padding:0; margin:0; box-sizing: border-box;}
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+      background-color: #ccc;
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container section {
+      width: 50vw;
+      height: 100vh;
+    }
+
+    #container ul {
+      list-style-type: none;
+      text-align: center;
+    }
+    #container ul li {
+      margin-bottom: 0.5vh;
+    }
+    /* border-bottom 을 써서 및줄을 만들어줌  */
+    #container ul li:hover {
+      border-bottom: 5px solid white;
+      margin-bottom: 1vh;
+    }
+
+    /* 순서 선택자 nth-child() */
+    #container section:nth-child(1){background-color: #ddd;}
+    #container section:nth-child(2){background-color: #bbb;}
+
+    /* 속성선택자 attribute selector */
+    #container section[data-attribute="display-example"] ul {
+     border: 1px dashed red; 
+    }
+
+    #container section[data-attribute="visibility-example"] ul {
+     border: 1px dashed blue; 
+    }
+
+    /* button styling ****************************  */
+    #display-type, #visibility-type {
+      width: 40vw;
+      height: 5vh;
+    }
+
+  </style>
+</head>
+<body>
+  
+
+  <div id="container">
+    <section data-attribute="display-example">
+      <button id="display-type">display type</button>
+      <ul>
+       <li>display-1</li>
+       <li>display-2</li>
+       <li>display-3</li>
+       <li>display-4</li>
+       <li>display-5</li>
+      </ul> 
+      <!-- inline styling type -->
+      <div style ="width:inherit; height: 10vh; background-color: rebeccapurple;"></div>
+
+    </section>
+    <section data-attribute="visibility-example">
+      <button id="visibility-type">visibility type</button>
+      <ul>
+        <li>visibility-1</li>
+        <li>visibility-2</li>
+        <li>visibility-3</li>
+        <li>visibility-4</li>
+        <li>visibility-5</li>
+      </ul> 
+      <div style ="width:inherit; height: 10vh; background-color: cadetblue;"></div>
+    </section>
+  </div>
+
+  <script>
+    const displaySelector = document.querySelector(' #container section:nth-child(1) ul');
+    const visibilitySelector = document.querySelector(' #container section:nth-child(2) ul');
+    // button init
+    const displayBtn = document.querySelector('#display-type');
+    const visibilityBtn = document.querySelector('#visibility-type');
+    console.log(displaySelector);
+    console.log(visibilitySelector);
+    // button 이벤트 , -> 디스플레이 토글 
+    displayBtn.addEventListener('click', (e)=> {
+      if(displaySelector.style.display === "none") {
+        displaySelector.style.display = "block";
+      } else {
+        displaySelector.style.display = "none";
+      };
+    });
+    // button 이벤트 , -> 비지빌리티 토글 
+    visibilityBtn.addEventListener('click', (e)=> {
+      if(visibilitySelector.style.visibility === "visible") {
+        visibilitySelector.style.visibility = "hidden";
+      } else {
+        visibilitySelector.style.visibility = "visible";
+      };
+    });
+    
+
+
+
+  </script>
+</body>
+</html>

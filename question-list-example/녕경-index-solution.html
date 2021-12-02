@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
+  <title>Cruella2</title>
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <!-- <link rel="stylesheet" href="css/layout2.css"> -->
+
+  <style>
+
+    *{padding:0; margin: 0; box-sizing: border-box;}
+
+    body {
+      overflow-x: hidden;
+    }
+    
+    #container {
+      width: 100vw;
+      height: 500vh;
+      background-color: #ccc;
+    }
+
+    #menu-nav {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+    }
+
+    #menu-btn {
+      position: fixed;
+      right: 0;
+      bottom: 10vh;
+      cursor: pointer;
+      border: 1px solid red;
+      padding: 1vw;
+    }
+
+    #main-ul {
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* active class */
+
+    .hidden {
+      display:none;
+    }
+
+  </style>
+
+
+</head>
+
+
+<body>
+
+<!-- menu -->
+<!-- nav 태그 자체의 position 속성을 fixed로 바꿈 -->
+<nav id="menu-nav">
+  <!-- 메뉴버튼을 nav 자식으로 변경 -->
+  <!-- menu 버튼에 anchor 태그 삭제 -->
+  <div id="menu-btn">menu</div>
+  <ul id="main-ul" class="hidden">
+    <li class="main-menu"><a href="">Story</a></li>
+    <li class="main-menu"><a href="">Origin</a></li>
+    <li class="main-menu"><a href="">Charactors</a></li>
+    <li class="main-menu"><a href="">Director</a></li>
+    <li class="main-menu"><a href="">Fashion</a></li>
+    <li class="main-menu"><a href="">Walt Diseny Official</a></li>
+    <li class="main-menu"><a href="" id="close">X CLOSE</a></li>
+  </ul>
+</nav>
+
+
+
+
+<!-- main -->
+  <div id="container">
+  </div>
+
+  <script>
+    const menuBtn = document.querySelector('#menu-btn');
+    const menuUl = document.querySelector('#main-ul');
+
+    menuBtn.addEventListener('click', ()=> {
+      if(menuUl.classList.contains('hidden')) {
+        menuUl.classList.remove('hidden');
+      } else {
+        menuUl.classList.add('hidden');
+      }
+
+      
+    })
+
+
+
+
+  </script>
+
+
+</body>
+</html>

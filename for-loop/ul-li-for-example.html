@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ul-li-button</title>
+</head>
+<body>
+  
+  <!-- 
+
+    마크업 구상
+
+    동작시킬 트리거로 버튼을 마크업
+    동작을 수행할 대상 -> ul li
+
+    -->
+
+    <button id="trigger">trigger</button>
+
+    <ul id="styling-target">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <li>11</li>
+      <li>12</li>
+      <li>13</li>
+      <li>14</li>
+      <li>15</li>
+      <li>16</li>
+      <li>17</li>
+      <li>18</li>
+      <li>19</li>
+      <li>20</li>
+      <li>21</li>
+      <li>22</li>
+      <li>23</li>
+      <li>24</li>
+      <li>25</li>
+      <li>26</li>
+      <li>27</li>
+      <li>28</li>
+      <li>29</li>
+      <li>30</li>
+      <li>31</li>
+      <li>32</li>
+      <li>33</li>
+      <li>34</li>
+      <li>35</li>
+      <li>36</li>
+      <li>37</li>
+      <li>38</li>
+      <li>39</li>
+      <li>40</li>
+      <li>41</li>
+      <li>42</li>
+      <li>43</li>
+      <li>44</li>
+      <li>45</li>
+      <li>46</li>
+      <li>47</li>
+      <li>48</li>
+      <li>49</li>
+      <li>50</li>
+    </ul>
+
+    <script>
+      const trigger = document.querySelector('#trigger');
+      // 요소가 잘 선택되었는지 식별자를 -> 콘솔로 확인한다.
+      console.log(trigger);
+      // 아래의 행은 ul 태그 식별
+      const styleWrap = document.querySelector('#styling-target');
+      console.log(styleWrap);
+      const styleTargetTest = document.querySelectorAll('#styling-target > li');
+      // styleTargetTest <-- 해당 식별자는 '형제' 요소가 많기 때문에 특정 한가지를 식별할 수 없다.
+      console.log(styleTargetTest);
+      const styleTarget = document.querySelectorAll('#styling-target > li');
+      console.dir(styleTarget); // <-- 객체 내부가 어떻게 구성되어있는지 확인할 것
+      console.log(styleTarget[9]); // < -- 순서상으로 10번째 li 요소를 선택했다.
+      
+      // 버튼 태그에 이벤트를 달아 주었다.
+      trigger.addEventListener("click", function() {
+
+        // 한가지만 식별 할 수 없기 때문에 loop 반복문을 통해 '모든 형제요소' 를 접근하려고 for문을 활용했다.
+        // 마크업으로 생각하면 ul li { color : red ;} 와 같다.
+        
+        for(let i = 0; i < styleTarget.length; i++) {
+          styleTarget[i].style.color = "red";
+
+          if( i === 9) { // 만약 i가 9 라면 참 조건식 수행
+            // 10번째 li 태그에 특별한 스타일링을 '별도로' 하고 싶다.
+            styleTarget[i].style.color = 'blue';
+          }
+
+        }
+
+
+      });
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

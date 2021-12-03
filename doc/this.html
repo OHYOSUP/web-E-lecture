@@ -7,19 +7,85 @@
   <title>Document</title>
 </head>
 <body>
-  
-  <div>111</div>
+
+
+  <h1>유용하지만 너무 애매모호한 this </h1>
+  <p>
+
+    this는 말 그대로 '이것'을 의미 하는데, 유연하게 반응 하기 때문에 가리키는 것이 상황마다 다르다<br>
+    인터넷 코드나 기타 예제 에서 this를 만났을때 이것이 무엇을 가리키는지를 확인 할 필요가 있다.<br>
+    확인하는 입장에서는 불편하지만, 만드는 입장에서는 편하다 콘솔한번만 확인한다면. <br>
+  </p>
+  <hr>
+  <pre>
+    h1.addEventListener('click', function() {
+      h1.style.color = "red";
+    });
+  </pre>
+  <p>
+    임의의 h1식별자에 글씨 색깔을 클릭으로 바꾸어주는 예제 이다.<br>
+    이것을 this로 활용한다면,
+
+  </p>
+
+  <pre>
+    h1.addEventListener('click', function() {
+      this.style.color = "red";
+    });
+  </pre>
+  <p>
+    위와 같이 사용할 수 있다.<br>
+    간단한 제어인 경우, 굳이 this로 사용할 필요가 없지만, 
+    복합적인 기능을 장착한 함수라면 이야기가 달라진다. 
+  </p>
+  <hr>
+
+  <h2>어떤 요소의 자식에게 컬러값을 전달해주는 함수</h2>
+  <pre>
+    function colorChangeFunction (element, colorValue) {
+      element.children.style.color = 'red';
+        function toggle (element) {
+          this.children.style.color = "blue";
+        }
+        toggle(element);
+    }
+  </pre>
+  <p> 
+    위의 예제와 같이 함수가 고차원으로 구성되었을때, this 키워드의 유용성이 올라간다.<br>
+    함수화(캡슐화, 모듈화) 등, 유연한 함수알고리즘 구성이나 객체구성(생성자 함수)용으로 활용된다.<br>
+    this는 event.target과 많이 닮았다.
+  </p>
+  <br>
+  <h2>주의해야하는 사항</h2>
+  <p>
+    this를 사용하지 않는다면 이벤트나 기타등등 함수를 사용할때 화살표함수방식, 함수선언방식등 여러가지를 편하게 사용해도 괜찮지만,<br> 화살표함수는 this처리가 함수선언방식과 다르기때문에 주의해야한다. <br>
+
+  </p>
+
+  <h3 style="color : red;">아래의 스크립트 코드로 this 가 가리키는 것이 함수 방식마다 다른 것을 확인 할 것</h3>
+
+
+  <h2>화살표 함수와 일반 함수선언문의 차이</h2>
+  <hr>
+  <div id="function-declaration">this keyword</div>
+  <div id="function-arrow">this , arrow function</div>
 
   <script>
 
-    const div = document.querySelector('div');
+    const divOne = document.querySelector('#function-declaration');
+    const divTwo = document.querySelector('#function-arrow');
 
 
-      div.addEventListener('click', function() {
+      divOne.addEventListener('click', function() {
         console.log(this);
-        console.log(div);
+        // 일반 함수 선언문 방식 속 this는 선택한 본인을 찾는다.
       });
 
+      divTwo.addEventListener('click', () => {
+        console.log(this);
+        // 화살표 함수 속 this는 식별자(선택자)의 부모를 찾는다.
+
+      })
 
   </script>
 

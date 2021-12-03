@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slide solution</title>
+  <style>
+
+  
+    #subBox3{ /* 최상위 부모 */
+      position: relative;
+    }
+    #showBox { /*실제 보여야 할 모양 */
+      position: absolute;
+      z-index: 10;
+      width:200px;
+      height:200px;
+      border:5px solid brown;
+      /* overflow: hidden; */
+    
+    }
+    #showBox div { /* section 슬라이더 아이템들 레이아웃 */
+      position: absolute;
+      z-index: 0;
+      border: 2px solid blue;
+      width: 600px;
+      height: 200px;
+      /* 자식 섹션태그들 레이아웃 */
+      display: flex;
+      align-items: center;
+    }
+
+    #showBox div section {
+      width: 200px;
+      height: 200px;
+      background-color: #ddd;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="subBox3">
+      <div id="showBox">
+        <div id="slideImgBox">
+          <section id="imgBox1">imgBox1</section>
+          <section id="imgBox2">imgBox2</section>
+          <section id="imgBox3">imgBox3</section>
+        </div>
+      </div>
+      <div id="p-tag"></div>     
+  </div>
+
+  <script>
+
+    const slideImgBox = document.querySelector('#slideImgBox');
+    const slideItem = document.querySelector('#imgBox1');
+    
+    // 컨테이너 가로값 찾기
+    console.dir(slideImgBox);
+
+    console.log(slideImgBox.offsetWidth);
+
+
+    let getMarginLeftValue = 0;
+    const sliderInterval = setInterval(() => {
+      if(getMarginLeftValue < slideImgBox.offsetWidth - slideItem.offsetWidth) {
+        slideImgBox.style.marginLeft = -(getMarginLeftValue) + 'px';
+        getMarginLeftValue = getMarginLeftValue + 200;
+      } else {
+        getMarginLeftValue = 0;
+      }
+    }, 2000);
+
+
+  </script>
+
+</body>
+</html>

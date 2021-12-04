@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>opacity fadein & fadeout</title>
+  <style>
+    *{margin:0; padding: 0; box-sizing: border-box;}
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      
+      /* flex */
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    #container section {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      margin: 25px;
+    }
+    
+    #container section:nth-child(odd) {
+      /* styling */
+      background-color: lightgoldenrodyellow;
+      filter:blur(10px);
+      mix-blend-mode: hard-light;
+    }
+    #container section:nth-child(even) {
+      /* styling */
+      background-color: lightgreen;
+      filter:blur(10px);
+      mix-blend-mode: hard-light;
+    } 
+
+  </style>
+</head>
+<body>
+  
+  <div id="container">
+    <section>light-1</section>
+    <section>light-2</section>
+    <section>light-3</section>
+    <section>light-4</section>
+    <section>light-5</section>
+    <section>light-6</section>
+    <section>light-7</section>
+    <section>light-8</section>
+    <section>light-9</section>
+    <section>light-10</section>
+  </div>
+
+  <script>
+
+    // 알고리즘 설계 구상
+    /*
+
+    목표 : 홀수번째와 짝수번째 동그라미들이 번갈아가며 나타났다 사라지는 것을 만든다.
+    절차 
+      1. opacity가 0에서 1로 혹은 1에서 0으로 스위치가 된다.
+      2. 1 이거나 0, 0이거나 1 --> 어라 이거 boolean 타입과 많이 닮았네?
+      첫번째 해결 방안
+        1. 값이 0일때 1로 바뀐다. 값이 1일때 0으로 바뀐다.
+    */
+
+
+    window.addEventListener('load', ()=> {
+      // #container 의 자식중 section 태그의 홀수 번째 자식들 식별
+      const sectionOdd = document.querySelectorAll('#container section:nth-child(odd)');
+      // #container 의 자식중 section 태그의 짝수 번째 자식들 식별
+      const sectionEven = document.querySelectorAll('#container section:nth-child(even)');
+
+      
+      // 홀수번째 자식들이 잘 선택되었는지 for문을 통해 콘솔 확인
+      // for(let i = 0; i < sectionOdd.length; i++) {
+      //   console.log(sectionOdd[i]);
+      // }
+
+      // 짝수번째 자식들이 잘 선택되었는지 for문을 통해 콘솔 확인
+      // for(let i = 0; i < sectionEven.length; i++) {
+      //   console.log(sectionEven[i]);
+      // }
+
+      //  스위치 처럼 사용하기 위해서 boolean type 선언 
+      let switchValue = true;
+      // if 문 조건식 변수가 true 라면 콘솔 찍어주세요.
+      if(switchValue === true) {
+        console.log(switchValue);
+        // 콘솔 찍은다음 변수 switchValue를 false로 바꾸어주세요.
+        switchValue = false;
+      } else {
+        console.log(switchValue);
+        switchValue = true;
+      }
+      // 위의 조건식은 참인경우에 종료가 되기때문에 거짓조건식은 실행되지 않는다. 하지만 스위치 기능은 충분히 구현되어있다.
+
+      // 클릭이벤트를 통해 불리언타입으로 스위치를 토글 할 수 있다면?
+      // 토글하는 과정에서 부가적인 무언가를 할 수 있게 될것!
+
+
+
+
+
+      // window global scope *************************************
+    });
+
+
+    
+  </script>
+</body>
+</html>

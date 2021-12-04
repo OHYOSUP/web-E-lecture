@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>opacity fadein & fadeout</title>
+  <style>
+    *{margin:0; padding: 0; box-sizing: border-box;}
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      
+      /* flex */
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    #container section {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      margin: 25px;
+    }
+    
+    #container section:nth-child(odd) {
+      /* styling */
+      background-color: lightgoldenrodyellow;
+      filter:blur(10px);
+      mix-blend-mode: hard-light;
+      /* animation setting */
+      animation-duration: 1s;
+      animation-name: fade-type-one;
+      animation-iteration-count: infinite;
+    }
+    #container section:nth-child(even) {
+      /* styling */
+      background-color: lightgreen;
+      filter:blur(10px);
+      mix-blend-mode: hard-light;
+      /* animation setting */
+      animation-duration: 1s;
+      animation-name: fade-type-two;
+      animation-iteration-count: infinite;
+    } 
+    @keyframes fade-type-one {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes fade-type-two {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="container">
+    <section>light-1</section>
+    <section>light-2</section>
+    <section>light-3</section>
+    <section>light-4</section>
+    <section>light-5</section>
+    <section>light-6</section>
+    <section>light-7</section>
+    <section>light-8</section>
+    <section>light-9</section>
+    <section>light-10</section>
+  </div>
+
+</body>
+</html>

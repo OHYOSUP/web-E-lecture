@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    section {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #hello {
+      background-color: coral;
+    }
+
+    #bye {
+      background-color: lightcoral;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <section id="hello">hello</section>
+    <section id="bye">bye</section>
+  </div>
+
+  <script>
+
+    const container = document.querySelector('#container');
+
+    container.addEventListener('click', (event) => {
+      console.log(event.target);
+      console.dir(event);
+    });
+
+    window.addEventListener('wheel', (event) => {
+      console.dir(event);
+      console.log(event.deltaY);
+    })
+
+  </script>
+</body>
+
+</html>

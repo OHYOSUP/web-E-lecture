@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>git-info</title>
+  <style>
+    i {
+      color:#999;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h4>사용사 등록</h4>
+  <p>git config --global user.name "이름"</p>
+  <p>git config --global user.email "이메일"</p>
+  <i>config / 사용자 를 정의하면 commit 정보에 해당 작업을 진행한 사람의 정보와 시간을 확인할 수 있다.</i>
+  <i>여러명을 등록할 경우 -> 협업이 가능하다.</i>
+  <hr>
+  <h4>git 시작(초기화)</h4>
+  <p>git init</p>
+  <i>.git이라는 숨김폴더가 프로젝트 폴더에 생성되어 파일 이력이 추적되기 시작한다.</i>
+  <h4>git status</h4>
+  <p>git 상태를 확인할 수 있으며, 해당 부분은 대부분 에디터가 기능해준다.</p>
+  <h4>파일 스테이징</h4>
+  <p>에디터 깃 메뉴에서 우클릭하거나 git add 파일이름 /</p>
+  <i>git add . (git 띄고 add 띄고 .마침표) 까지 하면 "모든 파일 스테이징" 이 된다.</i>
+  <h4>추적시킬 파일에 메모달기</h4>
+  <p>깃은 추적시키고 싶은 파일에는 반드시 스테이징과 커밋이라는 메모를 달게끔 되어있다.</p>
+  <p>스테이징 파일이 없거나, 파일에 변동사항이 없으면 일반적으로 커밋을 달 수 없다.</p>
+  <p>git commit -m "커밋내용"</p>
+  
+
+</body>
+</html>

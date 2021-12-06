@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=d, initial-scale=1.0">
+  <title>Document</title>
+    <style>
+      * {margin:0; padding: 0; box-sizing: border-box;}
+
+      #container {
+        width: 100vw;
+        height: 100vh;
+        background-color: cornflowerblue;
+      }
+
+
+    </style>
+</head>
+<body>
+  <div id="container">
+    <p id="client-x"></p>
+    <p id="client-y"></p>
+
+  </div>
+
+  <script>
+    window.addEventListener('mousemove', (event) => {
+      
+      document.querySelector('#client-x').textContent = `마우스의 가로 좌표값 : ${event.clientX}`;
+      document.querySelector('#client-y').textContent = `마우스의 세로 좌표값 : ${event.clientY}`;
+      
+    })
+
+
+
+
+  </script>
+</body>
+</html>

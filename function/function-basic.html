@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function-basic</title>
+</head>
+<body>
+  <script>
+
+    // 함수 선언문 방식 
+    // function 이라는 '함수선언'을 통해 함수를 생성한다.
+    // 함수이름은 제작자가 자유롭게 지을수 있다.
+    // 함수 이름 옆 () 소괄호는 함수의 연산 재료가 되어주는 '매개변수' 이다.
+    // 매개변수(parameter)는 제작자가 여러가지 방법으로 설정 할 수 있다.
+    function functionOne(parameterOne, parameterTwo) {
+      // return은 함수의 알고리즘이 실행되었을때 출력해주는 방식이다. 
+      // return 을 쓰지 않으면, 함수실행 후 반드시 undefined가 출력된다.
+      // 혼동하기 좋은 것은 다른 함수를 사용했을때 return을 쓰지 않는 경우가 빈번하다.
+      // 함수에 console.log() 구문이 달려있다면 이미 console.log() 함수 안에 return이 있기 때문이다.
+      return parameterOne + parameterTwo; 
+    };
+    // 함수 호출 
+    functionOne(1, 4);
+    // *********************************************************************************************************
+
+    // 함수 리터럴 방식 
+    // 위의 함수와 다른 점은 함수자체는 이름이 없는 '익명'함수라는 것이다.
+    // 대신에 식별할 수 있는 상수가 붙어있다.
+    // 보안 측면에서 강한 면모를 보이기 때문에 많은 경우 사용하고 있다.
+    // 이름은 없지만 꺼내 쓸 수 있다.
+    const functionTwo = function(parameterOne, parameterTwo) {
+      return parameterOne + parameterTwo;
+    };
+    // 엄밀히는 상수 호출이지만, 함수호출처럼 사용할 수 있다.
+    functionTwo(2,6);
+
+    // *********************************************************************************************************
+
+
+    // 화살표 함수 방식 
+    // this 를 사용하지 않는다면 위의 함수리터럴방식과 동일하다.
+    // function 이라는 단어를 쓰는 것을 괄호로 대체하는 축약용으로 ES6(자바스크립트 최신버전)으로 도입되었다.
+    // 여러가지 다양하게 쓰이지만 매개변수자리에 함수가 들어가는 '콜백'함수에 화살표함수를 사용하는 경우가 잦다.
+    const functionThree = (parameterOne, parameterTwo) => {
+      return parameterOne + parameterTwo;
+    }
+
+    // *********************************************************************************************************
+
+
+    // 즉시 실행 함수
+    // 기명함수 선언방식에 영역바깥에 () 소괄호가 덧데어진 형태이다.
+    // 즉시 실행함수는 코드가 읽히는 순간 실행하는 방식이기 때문에 별다른 호출이 필요없다.
+    // 가장 우선 실행해야하는 강력한 도구여야할때 사용하는 편
+    (function functionFour(parameterOne, parameterTwo) {
+      return parameterOne + parameterTwo;
+    })(1, 5);
+
+    // *********************************************************************************************************
+
+    // 고차함수
+    // 복잡하고 똑똑한 알고리즘인 경우 대부분 고차함수일 확률이 높다.
+    // 어떤 함수와 어떤 함수, 그리고 함수가 어떤 역할을 하는지를 알아내는 과정이 필요하며
+    // 아래의 방식은 함수끼리 덧셈하는 간단한 경우 이지만
+    // A함수의 결과물과 특정 변수값을,
+    // return 으로 쓰거나, 특정 타이머로 쓰는 등 
+    // 함수의 입출력관계를 마치 레고처럼 엮어놓는 무언가로 사용하여 
+    // 복잡한 기능을 수행 할 수 있도록 한다.
+    
+
+    function higherFunction () {
+      return functionOne(1,4) + functionTwo(5,6) + functionThree(7, 5);
+    }
+
+
+  </script>
+</body>
+</html>

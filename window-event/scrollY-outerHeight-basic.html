@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    /* body{overflow: hidden;} */
+    section {
+      width: 100vw;
+      height: 100vh;
+      transition: 500ms;
+    }
+
+    section:nth-child(1) {
+      background-color: antiquewhite;
+    }
+
+    section:nth-child(2) {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <section>00000</section>
+    <section>11111</section>
+  </div>
+
+  <script>
+    const container = document.querySelector('#container');
+    const sec = document.querySelectorAll('section');
+
+    container.addEventListener('click', (event) => {
+
+      // 컨테이너 자식의 위치값을 찾았다.
+      console.log(event.target.offsetTop);
+      // 클릭한 자식중의 하나에 대한 위치값을 변수에 담았다.
+      let getOffsetValue = event.target.offsetTop;
+      // arrow function 때문에 event parameter는 상위 스코프인
+      // window를 가리킨다. 주의할 것
+      console.log(this)
+      // 아래의 콘솔은 window의 스크롤값을 접근하고자 한것
+      console.log(this.scrollY);
+      // window의 전체 높이값
+      console.log(this.outerHeight);
+
+      if(this.scrollY < this.outerHeight / sec.length) {
+        console.log('less scrollY value');
+      } else {
+        console.log('more scrollY value');
+      }
+    });
+  </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2021-12-08 web design example
+  </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: rgb(2, 0, 36);
+      background: linear-gradient(6deg, rgba(2, 0, 36, 1) 0%, rgba(66, 71, 72, 1) 100%);
+    }
+
+    #container {
+      width: 100vw;
+      height: 100vh;
+
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container h1 {
+      color: #aaa;
+      font-weight: 100;
+    }
+
+    #point-text {
+      color: salmon;
+      font-weight: 500;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>HELLO WORLD <span id="point-text"></span> <span id="main-title-cursor">|</span></h1>
+  </div>
+
+
+  <script>
+    window.addEventListener('load', () => {
+
+      // init
+      const maintitleCursor = document.querySelector('#main-title-cursor');
+      const pointText = document.querySelector('#point-text');
+      const typingArr = ["hi", "bye", "wow", "yes"];
+
+      // style
+      maintitleCursor.style.opacity = 1;
+
+      // check
+      console.dir(maintitleCursor);
+      console.log(maintitleCursor.style.opacity);
+
+
+      const cursorTimer = setInterval(() => {
+        if (maintitleCursor.style.opacity === "1") {
+          maintitleCursor.style.opacity = "0";
+        } else {
+          maintitleCursor.style.opacity = "1";
+        };
+      }, 500);
+
+
+      // pointText.textContent = typingArr[0];
+
+      // let arrayIndex = 0;
+      // let interval = 1000;
+      // const textTimer = setInterval(() => {
+      //   if (arrayIndex < typingArr.length) {
+      //     pointText.textContent = typingArr[arrayIndex].toUpperCase();
+      //     console.log(typingArr[arrayIndex][0]);
+      //     arrayIndex++;
+      //   } else {
+      //     arrayIndex = 0;
+      //   }
+      // }, interval);
+      
+      console.dir(typingArr);
+
+      
+      
+
+
+
+    
+      // window load ----- scope ------------------------------
+    });
+  </script>
+
+
+</body>
+
+</html>

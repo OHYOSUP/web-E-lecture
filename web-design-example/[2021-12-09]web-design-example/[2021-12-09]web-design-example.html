@@ -36,15 +36,14 @@
     }
 
     #container h1 {
-      color: #aaa;
       font-weight: 100;
+      color: #aaa;
     }
 
     #point-text {
       color: salmon;
       font-weight: 500;
     }
-
   </style>
 </head>
 
@@ -61,47 +60,63 @@
       // init
       const maintitleCursor = document.querySelector('#main-title-cursor');
       const pointText = document.querySelector('#point-text');
-      const typingArr = ["hi", "bye", "wow", "yes"];
+      const typingArr = ["dynamic", "language", "javascript", "command", "control"];
 
       // style
       maintitleCursor.style.opacity = 1;
 
-      // check
-      console.dir(maintitleCursor);
-      console.log(maintitleCursor.style.opacity);
-
-
-      const cursorTimer = setInterval(() => {
+      // cursor interval 
+      setInterval(() => {
         if (maintitleCursor.style.opacity === "1") {
           maintitleCursor.style.opacity = "0";
         } else {
           maintitleCursor.style.opacity = "1";
         };
-      }, 500);
+      }, 250);
+
+      // title text type
+      let outerIndex = 0;
+      let innerIndex = 0;
+      let stringArr = [];
+      stringArr = Array.from(typingArr[outerIndex]);
+      let interval = 2000 / typingArr.length;
+      setInterval(() => {
+        if (outerIndex < typingArr.length) {
+          if (innerIndex < stringArr.length) {
+            pointText.textContent += stringArr[innerIndex].toUpperCase();
+            innerIndex++;
+          } else {
+            pointText.textContent = "";
+            innerIndex = 0;
+            outerIndex++;
+            if (outerIndex === typingArr.length) {
+              outerIndex = 0;
+            }
+            stringArr = Array.from(typingArr[outerIndex]);
+          }
+        }
+      }, interval);
 
 
-      // pointText.textContent = typingArr[0];
-
-      // let arrayIndex = 0;
-      // let interval = 1000;
-      // const textTimer = setInterval(() => {
-      //   if (arrayIndex < typingArr.length) {
-      //     pointText.textContent = typingArr[arrayIndex].toUpperCase();
-      //     console.log(typingArr[arrayIndex][0]);
-      //     arrayIndex++;
-      //   } else {
-      //     arrayIndex = 0;
-      //   }
-      // }, interval);
-      
-      console.dir(typingArr);
-
-      
-      
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       // window load ----- scope ------------------------------
     });
   </script>

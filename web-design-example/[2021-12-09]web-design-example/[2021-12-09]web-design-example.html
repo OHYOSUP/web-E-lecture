@@ -1,127 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2021-12-08 web design example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2021-12-08 web design example
-  </title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
 
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+      body {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          6deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(66, 71, 72, 1) 100%
+        );
+      }
 
-    body {
-      background: rgb(2, 0, 36);
-      background: linear-gradient(6deg, rgba(2, 0, 36, 1) 0%, rgba(66, 71, 72, 1) 100%);
-    }
+      #container {
+        width: 100vw;
+        height: 100vh;
 
-    #container {
-      width: 100vw;
-      height: 100vh;
+        /* flex */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-      /* flex */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      #container h1 {
+        font-weight: 100;
+        color: #aaa;
+      }
 
-    #container h1 {
-      font-weight: 100;
-      color: #aaa;
-    }
+      #point-text {
+        color: salmon;
+        font-weight: 500;
+      }
+    </style>
+  </head>
 
-    #point-text {
-      color: salmon;
-      font-weight: 500;
-    }
-  </style>
-</head>
+  <body>
+    <div id="container">
+      <h1>
+        HELLO WORLD <span id="point-text"></span>
+        <span id="main-title-cursor">|</span>
+      </h1>
+    </div>
 
-<body>
+    <script>
+      window.addEventListener("load", () => {
+        // init
+        const maintitleCursor = document.querySelector("#main-title-cursor");
+        const pointText = document.querySelector("#point-text");
+        const typingArr = [
+          "dynamic",
+          "language",
+          "javascript",
+          "command",
+          "control",
+        ];
 
-  <div id="container">
-    <h1>HELLO WORLD <span id="point-text"></span> <span id="main-title-cursor">|</span></h1>
-  </div>
+        // style
+        maintitleCursor.style.opacity = 1;
 
-
-  <script>
-    window.addEventListener('load', () => {
-
-      // init
-      const maintitleCursor = document.querySelector('#main-title-cursor');
-      const pointText = document.querySelector('#point-text');
-      const typingArr = ["dynamic", "language", "javascript", "command", "control"];
-
-      // style
-      maintitleCursor.style.opacity = 1;
-
-      // cursor interval 
-      setInterval(() => {
-        if (maintitleCursor.style.opacity === "1") {
-          maintitleCursor.style.opacity = "0";
-        } else {
-          maintitleCursor.style.opacity = "1";
-        };
-      }, 250);
-
-      // title text type
-      let outerIndex = 0;
-      let innerIndex = 0;
-      let stringArr = [];
-      stringArr = Array.from(typingArr[outerIndex]);
-      let interval = 2000 / typingArr.length;
-      setInterval(() => {
-        if (outerIndex < typingArr.length) {
-          if (innerIndex < stringArr.length) {
-            pointText.textContent += stringArr[innerIndex].toUpperCase();
-            innerIndex++;
+        // cursor interval
+        setInterval(() => {
+          if (maintitleCursor.style.opacity === "1") {
+            maintitleCursor.style.opacity = "0";
           } else {
-            pointText.textContent = "";
-            innerIndex = 0;
-            outerIndex++;
-            if (outerIndex === typingArr.length) {
-              outerIndex = 0;
-            }
-            stringArr = Array.from(typingArr[outerIndex]);
+            maintitleCursor.style.opacity = "1";
           }
-        }
-      }, interval);
+        }, 250);
 
+        // title text type
+        let outerIndex = 0;
+        let innerIndex = 0;
+        let stringArr = [];
+        stringArr = Array.from(typingArr[outerIndex]);
+        let interval = 2000 / typingArr.length;
+        setInterval(() => {
+          if (outerIndex < typingArr.length) {
+            if (innerIndex < stringArr.length) {
+              pointText.textContent += stringArr[innerIndex].toUpperCase();
+              innerIndex++;
+            } else {
+              pointText.textContent = "";
+              innerIndex = 0;
+              outerIndex++;
+              if (outerIndex === typingArr.length) {
+                outerIndex = 0;
+              }
+              stringArr = Array.from(typingArr[outerIndex]);
+            }
+          }
+        }, interval);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // window load ----- scope ------------------------------
-    });
-  </script>
-
-
-</body>
-
+        // window load ----- scope ------------------------------
+      });
+    </script>
+  </body>
 </html>

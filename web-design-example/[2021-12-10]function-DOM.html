@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .node-style {
+        width: 100px;
+        height: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 10px;
+        color: #333;
+        background-color: #f1f3f4;
+      }
+
+      .node-style:hover {
+        color: #f1f3f4;
+        background-color: #ff6666;
+        transition: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      const container = document.querySelector("#container");
+
+      function tagMaker(textNode, parentNode) {
+        let makeTagNameString = `<${textNode.toLowerCase()}>`;
+        const makeElement = document.createElement("div");
+        makeElement.classList.add("node-style");
+        makeElement.textContent = makeTagNameString;
+        parentNode.appendChild(makeElement);
+      }
+
+      tagMaker("hello", container);
+      tagMaker("style", container);
+      tagMaker("head", container);
+      tagMaker("body", container);
+      tagMaker("title", container);
+      tagMaker("h1", container);
+      tagMaker("span", container);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rotate-animation</title>
+    <style>
+      #container {
+        width: 100vw;
+        height: 100vh;
+        background-color: salmon;
+        /* children positioning */
+        position: relative;
+        /* flex */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @keyframes rotate-animation {
+        0% {
+          transform: rotate(0deg);
+          /* transform: translate(-500%, -500%); */
+        }
+        100% {
+          transform: rotate(360deg);
+          /* transform: translate(-500%, -500%); */
+        }
+      }
+      #rotate-element {
+        width: 100px;
+        height: 100px;
+        background-color: #ddd;
+        /* position */
+        position: absolute;
+        /* animation */
+        animation: rotate-animation infinite ease-in-out;
+        animation-duration: 3s;
+        transform-origin: -300% -300%;
+        /* margin-left: 200px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="rotate-element"></div>
+    </div>
+
+    <script>
+      const rotateElement = document.querySelector("#rotate-element");
+      console.dir(rotateElement);
+    </script>
+  </body>
+</html>

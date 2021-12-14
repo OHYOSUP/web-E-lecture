@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>selector-element-switch</title>
+  <style>
+    #container {
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container>div {
+      width: 200px;
+      height: 200px;
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    #element-1 {
+      background-color: #333;
+    }
+
+    #element-2 {
+      background-color: #555;
+    }
+
+    #element-3 {
+      background-color: #111;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="element-1"></div>
+    <div id="element-2"></div>
+    <div id="element-3"></div>
+  </div>
+  <script>
+
+    const container = document.querySelector('#container');
+
+    
+    container.addEventListener('click', (event) => {
+      const getIdArray = [];
+      console.log(container.children);
+      // for() 문의 loop 조건식이 특이하다.
+      // 부모인 container의 자식리스트가 length 값을 가지는 것을 확인하고
+      // for문의 loop 조건으로 활용했다.
+      for(let i = 0; i < container.children.length; i++) {
+        // 자식의 id 값을 미리 생성해놓은 getIdArray 라는 배열에 push를 통해 원소로 추가했다.
+        getIdArray.push(container.children[i].id);
+      }
+      // 결과적으로 getIdArray 라는 상수 인 배열은 container의 자식 갯수만큼의 id값을 수집한 절차를 밟았다.
+      console.log(getIdArray);
+
+      switch(event.target.id) {
+        // 옳은 방식은 아니지만, 조건식은 직접적으로 작성하는 방식 뿐만이 아닌,
+        // 즉석에서 배열로 수집하고, 수집한 값을 '꺼내올수만 있다면'
+        // 조건식으로도 활용할 수 있다.
+        case getIdArray[0] : {
+          event.target.style.backgroundColor = "blue";
+        }
+        break;
+        case getIdArray[1] : {
+          event.target.style.backgroundColor = "red";
+        }
+        break;
+        case getIdArray[2] : {
+          event.target.style.backgroundColor = "green";
+        }
+        break;
+        
+      }
+
+
+
+
+    });
+  </script>
+</body>
+
+</html>

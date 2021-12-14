@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal-scroll-1</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      /* scroll bar UI 를 감추면 새로운 사용자 경험을 만들어 낼 수 있음 */
+      /* 주석을 해제하여 어떤 연출이 되는지 확인할 것 */
+      /* overflow-y: hidden; */
+      /* overflow-x: hidden; */
+      
+    }
+
+    #container {
+      width: 500vw;
+      height: 100vh;
+      background: rgb(58, 74, 180);
+      background: linear-gradient(90deg, rgba(58, 74, 180, 1) 0%, rgba(252, 176, 69, 1) 100%);
+
+      
+    }
+    #container h1 {
+      font-size:2rem;
+      font-weight: 100;
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      color:darkkhaki;
+      mix-blend-mode:color-dodge;
+      opacity: 0.5;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div id="container">
+    <h1>test</h1>
+  </div>
+
+
+  <script>
+    const container = document.getElementById("container");
+    console.log(container);
+    console.dir(container);
+    // window(문서)의 가로사이즈 할당을 #container에 최초로 정의 되었다. 500vw 라는 뜻은
+    // viewport 의 500% 와 같다. 다시말해 접속한 화면을 100으로 정의하는 단위이며,
+    // 브라우저가 vw, vh 값을 확인하면 pixel로 환산한다.
+    console.dir(window); // <-- BOM 객체에 접근하여 '화면 가로폭 값'이 있는지 확인한다.
+    
+
+    const windowWidth = window.innerWidth;
+    console.log(windowWidth); // <- 브라우저 가로폭을 꺼낼 수 있다.
+
+
+    let eventHandle = 0;
+    window.addEventListener("wheel", (event) => {
+      // wheel event는 특이하게 deltaY 라는 값이 존재한다.
+      // scroll 과 다르게 값이 쌓이는 듯이 길이값이 나오지 않는다.
+      // 읽기전용 값이며, 음수, 양수, 0만 리턴한다 <-- 이점을 착안 ★
+      console.log(event.deltaY);
+      if (event.deltaY > 0) {
+        // 조건식 true : 마우스 휠을 아래로 내렸을때 양수가 나온다.
+        console.log('plus')
+        // 임의로 정한 숫자값 변수핸들러를 증가시킨다.
+        eventHandle++;
+        container.children[0].textContent = ` horizontal X value : ${windowWidth * eventHandle} `;
+        console.log(eventHandle);
+        // 결과적으로 휠이벤트가 발생하면 if() 조건식에 따라 eventHandle 이 증가되고 그것이 현재의 가로폭 * 증가된 카운트의 폭으로 값이 정해진다.
+        // 현재 보여지는 가로폭이 얼마일진 모르지만 확정조건을 확인하면 값을 마치 방정식 하듯 도출해낼 수 있다.
+        window.scrollTo({
+          left: windowWidth * eventHandle,
+          behavior: "smooth"
+        });
+      } else {
+        // 마우스 휘을 위로 올렸을때 음수가 나온다.
+        console.log('minus');
+        eventHandle--;
+        console.log(eventHandle);
+        container.children[0].textContent = ` horizontal X value : ${windowWidth * eventHandle} `;
+        window.scrollTo({
+          left: windowWidth * eventHandle,
+          behavior: "smooth"
+        });
+      }
+      // eventHandle이 범주를 벗어났을때 보정하는 if조건문 두개
+      if (eventHandle < 0) {
+        eventHandle = 0;
+        console.log("minimum");
+      }
+      if (eventHandle > 5) {
+        eventHandle = 5;
+        console.log("maximum");
+      }
+
+
+
+    });
+  </script>
+
+</body>
+
+</html>

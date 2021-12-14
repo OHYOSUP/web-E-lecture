@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>selector-element-switch</title>
+  <style>
+    #container {
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container>div {
+      width: 200px;
+      height: 200px;
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    #element-1 {
+      background-color: #333;
+    }
+
+    #element-2 {
+      background-color: #555;
+    }
+
+    #element-3 {
+      background-color: #111;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="element-1"></div>
+    <div id="element-2"></div>
+    <div id="element-3"></div>
+  </div>
+  <script>
+
+    const container = document.querySelector('#container');
+
+    container.addEventListener('click', (event) => {
+      // if() 조건식을 많이 사용하거나
+      // 조건마다 다른 경우의 알고리즘을 사용해야 할 때 switch 문을 사용한다.
+      // 정돈감있게 조건식을 활용할 수 있는 장점
+      // 설명 : switch (조건식) 값이 '무엇' 이라면 case라는 구문으로 loop가 돈다
+      // 값에 부합할때 순회를 멈춘다.
+      // {} 영역의 실행을 완료한다음 break 구문으로 인해 switch 조건문을 탈출(종료) 한다.
+      switch (event.target.id) {
+        case 'element-1': {
+          event.target.style.backgroundColor = "salmon";
+        }
+        break;
+        case 'element-2' : {
+          event.target.style.backgroundColor = "indigo";
+        }
+        break;
+        case 'element-3' : {
+          event.target.style.backgroundColor = "green";
+        }
+        break;
+      }
+    });
+  </script>
+</body>
+
+</html>

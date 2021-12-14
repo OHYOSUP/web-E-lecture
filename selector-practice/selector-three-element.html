@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>selector-element</title>
+  <style>
+    #container {
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container>div {
+      width: 200px;
+      height: 200px;
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    #element-1 {
+      background-color: #333;
+    }
+
+    #element-2 {
+      background-color: #555;
+    }
+
+    #element-3 {
+      background-color: #111;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="element-1"></div>
+    <div id="element-2"></div>
+    <div id="element-3"></div>
+  </div>
+  <script>
+
+    // workflow : 1
+    // 식별자 상수 생성
+    const container = document.querySelector('#container');
+
+    // workflow : 2
+    // div 3개를 자식으로 둔 container div 엘리먼트에 클릭이벤트 설치 
+    container.addEventListener('click', (event) => {
+      // addEventListener의 event 객체 때문에 클릭이벤트를 발생시키면
+      // container의 자식이 선택된다.
+      console.log(event.target);
+      // workflow : 3
+      // event.target으로 인해 선택된 자식 엘리먼트의 값 확인
+      console.dir(event.target);
+      
+      if(event.target.id === "element-2") {
+        // 클릭한 자식 앨리먼트가의 아이디값이 element-2 라는 문자열이라면
+        // 해당 영역 실행한다.
+        event.target.style.backgroundColor = "salmon";
+        event.target.textContent =" hello";
+      }
+      
+      // 간단한 조건식이라면 삼항연산자를 사용할 수 도 있다.
+      (event.target.id === "element-3") ? event.target.style.backgroundColor = "skyblue" : console.log("#element-3 이 아닙니다.");
+      // 삼항연산자 설명
+      // () 괄호 부분 조건식 ? 물음표 부분 문법 : 콜론의 좌항(왼쪽)은 참일때 실행, : 콜론의 우항은 거짓일때 실행
+      // 해당 조건문은 거짓일 수 없기 때문에 좋은 작업은 아니나, 짧게 사용하는 다른 제작자의 코드에서 자주 발견할 수 있다. 
+    });
+
+
+  </script>
+</body>
+
+</html>

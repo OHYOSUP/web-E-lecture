@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 500vh;
+      background: rgb(40, 42, 55);
+      background: linear-gradient(0deg, rgba(40, 42, 55, 1) 0%, rgba(31, 41, 60, 1) 100%);
+    }
+
+    #menu {
+      width: 100vw;
+      height: 5vh;
+      background-color: cadetblue;
+      color: #fff;
+      /* flex */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: sticky;
+      top: 0;
+
+    }
+
+    #menu ul {
+      width: inherit;
+      /* flex */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style-type: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="menu">
+    <ul>
+      <li>li-1</li>
+      <li>li-2</li>
+      <li>li-3</li>
+      <li>li-4</li>
+      <li>li-5</li>
+    </ul>
+  </header>
+  <div id="container">
+
+  </div>
+
+  <script>
+
+    const menu = document.querySelector('#menu');
+
+    window.addEventListener('scroll', function(event) {
+      // console.dir(event.target);
+      // console.dir(event.target.scrollingElement);
+      console.log(event.target.scrollingElement.scrollTop);
+      if(event.target.scrollingElement.scrollTop !== 0) {
+        menu.style.backgroundColor = "rgba(31, 41, 60, 1)";
+        menu.style.transition = "1s";
+      }; 
+    })
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal-scroll-1</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-y: hidden;
+      overflow-x: hidden;
+      
+    }
+
+    #container {
+      width: 500vw;
+      height: 100vh;
+      background: rgb(58, 74, 180);
+      background: linear-gradient(90deg, rgba(58, 74, 180, 1) 0%, rgba(252, 176, 69, 1) 100%);
+    }
+    #container h1 {
+      font-size:2rem;
+      font-weight: 100;
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      color:darkkhaki;
+      mix-blend-mode:color-dodge;
+      opacity: 0.5;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <h1>test</h1>
+  </div>
+  <script>
+    const container = document.getElementById("container");
+    const windowWidth = window.innerWidth;
+
+    let eventHandle = 0;
+    window.addEventListener("wheel", (event) => {
+      if (event.deltaY > 0) {
+        eventHandle++;
+        container.children[0].textContent = ` horizontal X value : ${windowWidth * eventHandle} `;
+        window.scrollTo({
+          left: windowWidth * eventHandle,
+          behavior: "smooth"
+        });
+      } else {
+        eventHandle--;
+        container.children[0].textContent = ` horizontal X value : ${windowWidth * eventHandle} `;
+        window.scrollTo({
+          left: windowWidth * eventHandle,
+          behavior: "smooth"
+        });
+      }
+      if (eventHandle < 0) {
+        eventHandle = 0;
+      }
+      if (eventHandle > 5) {
+        eventHandle = 5;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

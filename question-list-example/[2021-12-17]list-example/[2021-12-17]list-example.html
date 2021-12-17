@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+  <div id="container">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+
+  </div>
+
+  <script>
+    const container = document.querySelector('#container');
+    container.addEventListener('click', (event) => {
+      console.log(event.target);
+      // event.target.style.color = "red";
+      // console.log(event.target.textContent);
+      // console.log(typeof event.target.textContent);
+      // let changeDataType = Number(event.target.textContent);
+      // console.log(typeof changeDataType);
+      // if( changeDataType === 3) {
+      // event.target.style.color = "blue";
+      // }
+    })
+
+
+  </script>
+</body>
+</html>

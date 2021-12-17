@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    const container = document.querySelector('#container > ul');
+    const liValue = [1, 2, 3, 4, 5];
+    console.log(container.children.length);
+
+    // work : 1 
+    // li 태그에게 배열값을 모두 textContent로 넣어줌
+    // 일단주석처리함 -> setInterval 내부로
+    // for (let i = 0; i < container.children.length; i++) {
+    //   container.children[i].textContent = liValue[i];
+    // }
+
+    // work : 2
+    const timer = setInterval(() => {
+      // work : 3 : 1번작업 붙여넣음
+      for (let i = 0; i < container.children.length; i++) {
+        container.children[i].textContent = liValue[i];
+      }
+
+      // 배열의 마지막 원소값을 가져온다.
+      // 길이값의 -1 이면 원소 마지막을 선택하는 꼴이된다.
+      let getLastValue = liValue[liValue.length - 1];
+      // 배열의 맨 앞 원소를 없애버린다.
+      liValue.shift();
+      // 배열의 맨 뒤에 미리꺼내놓은 마지막원소값의 + 1 을 해 마지막원소로 밀어넣는다.
+      liValue.push(getLastValue + 1);
+      console.log(liValue);
+      // 만약 저장한 변수값이 50 이상이 되버리면 타이머를 끈다. 
+      if(getLastValue >= 50) {
+        clearInterval(timer);
+      }
+    }, 200);
+  </script>
+</body>
+
+</html>

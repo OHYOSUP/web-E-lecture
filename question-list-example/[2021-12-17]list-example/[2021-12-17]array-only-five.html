@@ -35,6 +35,13 @@
       // work : 3 : 1번작업 붙여넣음
       for (let i = 0; i < container.children.length; i++) {
         container.children[i].textContent = liValue[i];
+        container.children[0].style.opacity = '0.25';
+        container.children[1].style.opacity = '0.5';
+        container.children[2].style.opacity = '1';
+        container.children[2].style.color = 'salmon';
+        container.children[3].style.opacity = '5';
+        container.children[4].style.opacity = '0.25';
+
       }
 
       // 배열의 마지막 원소값을 가져온다.

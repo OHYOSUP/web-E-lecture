@@ -48,14 +48,12 @@
     const container = document.querySelector('#container > ul');
     const liValue = [1, 2, 3, 4, 5];
     console.log(container.children.length);
-
     // work : 1 
     // li 태그에게 배열값을 모두 textContent로 넣어줌
     // 일단주석처리함 -> setInterval 내부로
     // for (let i = 0; i < container.children.length; i++) {
     //   container.children[i].textContent = liValue[i];
     // }
-
     // work : 2
     const timer = setInterval(() => {
       // work : 3 : 1번작업 붙여넣음
@@ -68,7 +66,6 @@
         container.children[3].style.opacity = '5';
         container.children[4].style.opacity = '0.25';
       }
-      
       // 배열의 마지막 원소값을 가져온다.
       // 길이값의 -1 이면 원소 마지막을 선택하는 꼴이된다.
       let getLastValue = liValue[liValue.length - 1];
@@ -84,5 +81,4 @@
     }, 2000);
   </script>
 </body>
-
 </html>
